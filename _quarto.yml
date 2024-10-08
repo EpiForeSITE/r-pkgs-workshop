@@ -4,6 +4,7 @@ project:
 
 website:
   title: "Writing R Packages for the Public Good: A workshop"
+  body-footer: <text style="text-align:center">ForeSITE</text>
   repo-url: https://github.com/EpiForeSITE/r-pkgs-workshop
   navbar:
     logo: logo.png
