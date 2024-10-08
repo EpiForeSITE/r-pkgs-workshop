@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome!",
+    "section": "",
+    "text": "R packages are a fundamental tool for reproducibility and code sharing. Scientists and data analysts can use R packages to share new methods and improve data processing pipelines. This workshop is designed to provide a practical introduction to developing R packages. The workshop will be structured in two parts: Practical foundations of writing and a hackathon. The practical foundations will provide a start-to-finish example that attendees can follow. The hackathon component will be oriented to developing attendees’ own R packages, expecting them to complete the workshop with their own package."
+  },
+  {
+    "objectID": "index.html#about-the-workshop",
+    "href": "index.html#about-the-workshop",
+    "title": "Welcome!",
+    "section": "About the workshop",
+    "text": "About the workshop\n\nTime and location\nThe workshop will take place on Friday, November 8th, 202. Time and location are TBD.\n\n\nWhat would be good uses for an R package?\n\nYou have a set of functions repeated across R scripts that you would like to register as a collection within an R package.\nYou have a Shiny App you would like to share with colleagues so they can run it locally (for example) on their laptops.\nYou have a function that runs a simulation/estimation/analysis that you plan or are already using repeatedly.\nYou have some data that you would like to share with others or yourself in a simpler way.\nEtc.\n\n\n\nWho should attend?\nR programming users looking to learn how to write an R package, hopefully already having an idea/project for their own package. What level of programming should attendees have? Attendees should have experience using the R programming language. To get the most out of the workshop, they should have a working knowledge of programming concepts such as writing functions data manipulation using tools like dplyr, base R, or data.table.\n\n\nWhat tools will be used during the workshop?\nBesides the R programming language, we will be using Rstudio."
+  },
+  {
+    "objectID": "index.html#registration",
+    "href": "index.html#registration",
+    "title": "Welcome!",
+    "section": "Registration",
+    "text": "Registration\nFor registration, please reach out to your ForeSITE contact."
+  },
+  {
+    "objectID": "index.html#funding",
+    "href": "index.html#funding",
+    "title": "Welcome!",
+    "section": "Funding",
+    "text": "Funding\nThis workshop is organized by ForeSITE using funds from the CDC’s Center for Forecasting and Outbreak Analytics (CFA) (Award number 1U01CK000585; 75D30121F00003)."
+  },
+  {
+    "objectID": "program.html",
+    "href": "program.html",
+    "title": "Program",
+    "section": "",
+    "text": "TBD"
+  }
+]
