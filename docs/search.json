@@ -1,5 +1,33 @@
 [
   {
+    "objectID": "program.html",
+    "href": "program.html",
+    "title": "Program",
+    "section": "",
+    "text": "The workshop will be structured in two parts: Practical foundations of writing and a hackathon. The practical foundations will provide a start-to-finish example that attendees can follow. The hackathon component will be oriented to developing attendees’ own R packages, expecting them to complete the workshop with their own package.\nForeSITE"
+  },
+  {
+    "objectID": "program.html#part-i-practical-foundations-9.00-am---12.00-pm",
+    "href": "program.html#part-i-practical-foundations-9.00-am---12.00-pm",
+    "title": "Program",
+    "section": "Part I: Practical Foundations (9.00 am - 12.00 pm)",
+    "text": "Part I: Practical Foundations (9.00 am - 12.00 pm)\nThe first component of the workshop will cover the following topics:\n\nFundamentals about R packages: Structure, DESCRIPTION file, NAMESPACE, etc.\nDocumentaion using roxygen2.\nTesting using testthat/tinytest.\nContinuous integration using GitHub Actions.\nExtended documentation: Vignettes.\n\nThe contents will be taught using a start-to-finish example that attendees can follow."
+  },
+  {
+    "objectID": "program.html#lunch-12.00-pm---1.00-pm",
+    "href": "program.html#lunch-12.00-pm---1.00-pm",
+    "title": "Program",
+    "section": "Lunch (12.00 pm - 1.00 pm)",
+    "text": "Lunch (12.00 pm - 1.00 pm)"
+  },
+  {
+    "objectID": "program.html#part-ii-hackathon-1.00-pm---4.30-pm",
+    "href": "program.html#part-ii-hackathon-1.00-pm---4.30-pm",
+    "title": "Program",
+    "section": "Part II: Hackathon (1.00 pm - 4.30 pm)",
+    "text": "Part II: Hackathon (1.00 pm - 4.30 pm)\nThe hackathon will be oriented to developing attendees’ own R packages, expecting them to complete the workshop with their own package. The hackathon will be structured in the following way:\n\nDefining the ideal package (15 min).\nDefining the scope for the hackathon (15 min).\nImplementation of the package (checklist) (2.5 hours).\nNext steps (30 min)."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Welcome!",
@@ -26,12 +54,5 @@
     "title": "Welcome!",
     "section": "Funding",
     "text": "Funding\nThis workshop is organized by ForeSITE using funds from the CDC’s Center for Forecasting and Outbreak Analytics (CFA) (Award number 1U01CK000585; 75D30121F00003)."
-  },
-  {
-    "objectID": "program.html",
-    "href": "program.html",
-    "title": "Program",
-    "section": "",
-    "text": "TBD"
   }
 ]
