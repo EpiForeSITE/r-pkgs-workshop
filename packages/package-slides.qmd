@@ -1,0 +1,766 @@
+---
+title: "Packages Workshop"
+author: "Andrew Redd"
+format: 
+  revealjs:
+    md_extensions: +task_lists
+    embed-resources: true
+    slide-number: true
+    scrollable: true
+---
+
+# Overview
+
+## What is an `R` Package?
+
+```
+Code (Functions) + Documentation (Help & Vignettes) + Data (Datasets) + ... = Package
+```
+
+[![](https://r-pkgs.org/images/cover-2e-small.png)](https://r-pkgs.org/)
+
+## Why Create an `R` Package?
+
+- **Reproducibility**: Packages make it easy to share your code and data with others.
+- **Organization**: Packages help you organize your code and data.
+- **Collaboration**: Packages make it easy to collaborate with others.
+- **Distribution**: Packages make it easy to distribute your code and data.
+
+## Use Cases
+
+- **Personal**: Organize your code and data.
+- **Team**: Collaborate with others.
+- **Public**: Share your code and data with the world.
+- **Private**: Share your code and data with a select group of people.
+
+# Creating an `R` Package
+
+## Setup
+
+You will need a current setup of R and RStudio. You can download R from <https://cran.r-project.org> and RStudio from <https://www.rstudio.com/products/rstudio/download/>. If you are going to include compiled code, C/C++ or FORTRAN, you will also need a current setup of Rtools (if on windows). You can download Rtools from <https://cran.r-project.org/bin/windows/Rtools/>.  The following packages are also helpful, will be used here, but not strictly required.
+
+## Recommended Packages
+
+* [devtools](https://cran.r-project.org/package=devtools) - for package development
+* [roxygen2](https://cran.r-project.org/package=roxygen2) - for documentation
+* [testthat](https://cran.r-project.org/package=testthat) - for testing
+* [usethis](https://cran.r-project.org/package=usethis) - for package setup
+* [knitr](https://cran.r-project.org/package=knitr) - for vignettes
+* [rmarkdown](https://cran.r-project.org/package=rmarkdown) - for vignettes
+* [pkgdown](https://cran.r-project.org/package=pkgdown) - for package websites, will not be covered here.
+
+```r
+install.packages(c("devtools", "roxygen2", "testthat", "usethis", "knitr", "rmarkdown", "pkgdown"))
+```
+
+## Create a Package
+
+You can create a new package using the RStudio IDE.
+
+1. Click on the `File` menu.
+2. Click on the `New Project` menu item.
+3. Click on the `New Directory` menu item.
+4. Click on the `R Package` menu item.
+5. Click on the `Create Project` button.
+
+**Do this now.**
+
+## Create a Package, Continued
+
+Alternatively you can create a new package using the `usethis` or devtools packages.
+
+```r
+usethis::create_package("mypackage")
+devtools::create("mypackage")
+```
+
+## Checkpoint
+
+- [ ] Use git to create a checkpoint.
+    1. Under the git tab of the RStudio IDE, click on the `Commit` button.
+    2. Add all the files and folders
+    3. Write a commit message, "Initial Commit" is most common.
+    4. Click on the `Commit` button.
+    
+Alternatively you can use the command line, under the Terminal tab (next to console) of the RStudio IDE.
+```sh
+git commit -a -m"Initial Commit"
+```
+    
+
+## Package Structure
+
+Let's look at the files and folders created in detail.
+
+* `DESCRIPTION` - package metadata
+* `NAMESPACE` - package namespace
+* `R/` - R code files
+* `man/` - help files, an antiquated way to document functions. 
+* `.gitignore` - git ignore file. Anything listed here is ignored by git.
+* `.Rbuildignore` - build ignore file, files listed here are ignored by the R package build process.
+
+## Folders that will be added
+
+As we go along more folders may be added to the package.
+
+* `data/` - data files
+* `inst/` - installed files
+* `vignettes/` - vignettes
+* `tests/` - tests
+* `src/` - source code for compiled code
+
+## `DESCRIPTION`
+
+The `DESCRIPTION` file is a _required_ text metadata file that contains information(fields) about the package.The fields are key-value pairs separated by a colon.
+
+## `DESCRIPTION`, Primary Fields
+* `Package` - the name of the package.
+* `Type` - always 'Package', except for very special cases. 
+* `Title` - the title of the package.
+* `Version` - the version of the package.
+* `Author` - the author of the package. Superseded by Authors@R field, to be covered later.
+* `Maintainer` - who does CRAN notify about errors.
+* `Description` - a description of the package.
+* `License` - the license of the package.
+
+## `DESCRIPTION`, Continued
+
+The `DESCRIPTION` file can also contain other fields. Some of the more common fields are:
+
+* `URL`,`BugReports` - the URLs of the package, and bug tracker.
+* `Depends` - packages *loaded* with this package.
+* `Imports` - packages *needed* for this package
+* `Suggests` - Additional packages not strictly necessary but used for testing or additional functionality if available.
+
+## `NAMESPACE`
+
+The `NAMESPACE` is a _required_ file for all packages. It determines what functions are exported (public) from the package and what functions are imported from other packages. 
+
+Management of the `NAMESPACE` file is now typically done by the `roxygen2` package, although it can be done manually.
+
+## `R` Folder
+
+The `R/` folder contains the R code files for the package. The R code files should contain the functions that are part of the package. 
+Some good practices for the `R/` folder are:
+
+* Name the R code files after the functions they contain. For example, the function `hello` should be in a file named `hello.R`.
+* Opt for more files with fewer functions over fewer files with more functions.
+* Use the `roxygen2` package to document the functions in the R code files.
+
+## Example Package
+
+The package structure created by RStudio contains one file, `hello.R`. 
+The file contains the following:
+
+1. Lines 1-14 are a (normal) comment block.
+2. Lines 16-18 are the function `hello`.
+
+
+## `man` folder 
+
+The `man/` folder contains the help files for the package. The help files are an antiquated way to document functions. The `roxygen2` package is now the preferred way to document functions.
+
+# The Tools of the Trade
+
+## `devtools`
+
+The `devtools` package is a collection of tools for package development. Some of the functions in the `devtools` package are:
+
+* `load_all` (Ctrl+Shift+L) - loads the package into the current R session.
+* `document` (Ctrl+Shift+D) - documents the package.
+* `install` (Ctrl+Shift+B) - installs the package.
+* `test` (Ctrl+Shift+T) - tests the package.
+* `check` (Ctrl+Shift+E) - checks the package, more extensive than `test`.
+* `spell_check` - spell checks the package.
+
+## `usethis`
+
+The `usethis` package is a collection of tools to assist with common package development tasks. 
+The functions take the form of `use_*`, for example:
+
+* `use_data` - adds a data file to the `data/` folder.
+* `use_vignette` - adds a vignette to the `vignettes/` folder.
+* `use_test` - adds a test file to the `tests/` folder.
+* `use_r` - adds an R file to the `R/` folder.
+* `use_rcpp` - adds Rcpp to the `DESCRIPTION` file.
+* `use_import_from` - adds an import from another package to the `NAMESPACE` file.
+
+## `roxygen2`
+
+The `roxygen2` package is a collection of tools for documenting R code. The `roxygen2` package uses special comments in the R code files to generate the help files. The special comments are called roxygen tags. We will cover the tags in more detail later.
+
+
+# Workflow
+
+## Package Workflow
+
+- [x] Create a new package.
+- [ ] **Load Package**
+- [ ] Document Package
+- [ ] Test Package
+- [ ] Check Package
+- [ ] Install Package
+- [ ] ...
+
+## Development Workflow
+
+[Credit: Hadley Wickham and Jenny Bryan, R Packages(2e)](https://r-pkgs.org/whole-game.html#review)
+![](https://r-pkgs.org/diagrams/workflow.png)
+
+## Load Package
+
+To load the package into the current R session, use the `load_all` function from the `devtools` package (Ctrl+Shift+L).
+
+```r
+devtools::load_all()
+```
+
+Check.
+
+```r
+hello()
+```
+
+# Documentation
+
+## Package Workflow
+
+- [x] Create a new package.
+- [X] Load Package
+- [ ] **Document Package**
+- [ ] Test Package
+- [ ] Check Package
+- [ ] Install Package
+- [ ] ...
+
+## Document Package - `roxygen2`
+
+* Documentation code blocks are denoted with `#'` at the beginning of the line.
+* The comments are split into 3 implicit sections followed by explicit tags.
+* The implicit sections are `Title`, `Description`, and `Details`.
+
+```r
+#' The first list is the Title.
+#' 
+#' The second paragraph, separated from the title by an empty line, 
+#' is the Description.
+#' 
+#' The third paragraph and all subsequent paragraphs, until an 
+#' explicit tag, comprise the Details.
+```
+
+## Document Package - `roxygen2`, Tags
+
+Explicit [tags](https://roxygen2.r-lib.org/reference/tags-rd.html) denote other parts.
+
+- `#' @param` - function parameters.
+- `#' @return` - function return value.
+- `#' @examples` - examples of the function.
+- `#' @export` - export the function.
+
+See <https://roxygen2.r-lib.org/reference/index.html> for more tags.
+
+## Using `roxygen2` setup
+
+- [ ] `use_roxygen_md()` - use markdown for roxygen2.
+- [ ] Set RStudio to build documentation:
+    1. Menu Tools -> Project Options -> Build Tools
+    2. Check "Generate documentation with Roxygen"
+    3. Leave check marks as is, click okay through.
+
+## Document function
+
+- [ ] Add documentation to the `hello` function.
+
+```r
+#' Hello, world!
+#' 
+#' The universal hello world example done for R. It prints "Hello, world!" 
+#' to the console.
+#' 
+#' The hello world function is a simple function used to illustrate the basics 
+#' of syntax an functionality.
+#' @seealso https://en.wikipedia.org/wiki/%22Hello,_World!%22_program
+#' @export
+hello <- function() {
+  print("Hello, world!")
+}
+```
+
+# Documenting
+
+## Package Workflow
+
+- [x] Create a new package.
+- [X] Load Package
+- [ ] **Document Package**
+- [ ] Test Package
+- [ ] Check Package
+- [ ] Install Package
+- [ ] ...
+
+## Document Package
+
+To document the package, use the `document` function from the `devtools` package (Ctrl+Shift+D).
+
+```r
+devtools::document()
+```
+Under the build window you should see the output:
+```
+==> devtools::document(roclets = c('rd', 'collate', 'namespace'))
+
+ℹ Updating ExampleRPkg documentation
+First time using roxygen2. Upgrading automatically...
+Setting `RoxygenNote` to "7.3.2"
+ℹ Loading ExampleRPkg
+✖ Skipping hello.Rd
+ℹ It already exists and was not generated by roxygen2.
+✖ Skipping NAMESPACE
+ℹ It already exists and was not generated by roxygen2.
+Documentation completed
+```
+
+## Fix Documentation issues
+
+- [ ] Skipping hello.Rd
+    + Delete the file `man/hello.Rd`.
+- [ ] Skipping NAMESPACE
+    + `usethis::use_namespace(roxygen=TRUE)` to re-create the NAMESPACE file.  You will have to approve a response to a prompt.
+- [ ] re-run `devtools::document()`
+
+## Generated Files
+
+`man/hello.Rd`:
+```tex
+% Generated by roxygen2: do not edit by hand
+% Please edit documentation in R/hello.R
+\name{hello}
+\alias{hello}
+\title{Hello, world!}
+\usage{
+hello()
+}
+\description{
+The universal hello world example done for R. It prints "Hello, world!"
+to the console.
+}
+\details{
+The hello world function is a simple function used to illustrate the basics
+of syntax an functionality.
+}
+\seealso{
+https://en.wikipedia.org/wiki/%22Hello,_World!%22_program
+}
+```
+`NAMESPACE`:
+```
+# Generated by roxygen2: do not edit by hand
+
+export(hello)
+```
+
+## Review help file
+
+```r
+?hello
+```
+```
+ℹ Rendering development documentation for "hello"
+```
+
+- [ ] Inspect for issues. 
+    + Spelling.
+    + Grammar.
+    + If releasing to CRAN all function should have an `@return` and an `@examples` tag.
+
+```r
+# use spell check
+usethis::use_spell_check()
+```
+```
+✔ Adding spelling to Suggests field in DESCRIPTION.
+✔ Adding "en-US" to Language.
+The following words will be added to the wordlist:
+ - https
+ - wikipedia
+Are you sure you want to update the wordlist?
+1: Yes
+2: No
+```
+
+```r
+devtools::spell_check()
+```
+```
+  WORD        FOUND IN
+https       hello.Rd:18
+wikipedia   hello.Rd:18
+```
+
+## Fix documentation issues.
+
+- [ ] Fix spelling issues by changing see also into a proper link.
+- [ ] Add `@return`
+- [ ] Add `@examples`
+
+`R/hello.R`:
+```r
+#' Hello, world!
+#'
+#' The universal hello world example done for R. It prints "Hello, world!"
+#' to the console.
+#'
+#' The hello world function is a simple function used to illustrate the basics
+#' of syntax an functionality.
+#' @seealso [Wikipedia - Hello, World!](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program)
+#' @export
+#' @return Called for side effects. Returns `"Hello, world!"` invisibly.
+#' @examples 
+#' hello()
+hello <- function() {
+    print("Hello, world!")
+}
+
+```
+
+```r
+devtools::document() # Or Ctrl+Shift+D
+```
+### Build output:
+```
+==> devtools::document(roclets = c('rd', 'collate', 'namespace'))
+
+ℹ Updating ExampleRPkg documentation
+ℹ Loading ExampleRPkg
+Writing hello.Rd
+Documentation completed
+```
+### Spell Check
+```r
+devtools::spell_check()
+```
+```
+No spelling errors found.
+```
+
+# Testing
+
+## Package Workflow
+
+- [x] Create a new package.
+- [X] Load Package
+- [X] Document Package
+- [ ] **Test Package**
+- [ ] Check Package
+- [ ] Install Package
+- [ ] ...
+    
+    
+## Test Frameworks
+
+Testing can be carried out in a number of ways. Using a testing framework is the simplest. The `testthat` package is supported by Posit, integrates with the other tools seamlessly, and is the most popular among the options. Alternatives such as [`tinytest`](https://cran.r-project.org/package=tinytest) and [`RUnit`](https://cran.r-project.org/package=RUnit) exist.
+
+## `testthat`
+
+- [ ] Setup for testing
+```r
+usethis::use_testthat()
+```
+```
+✔ Adding testthat to Suggests field in DESCRIPTION.
+✔ Adding "3" to Config/testthat/edition.
+✔ Creating tests/testthat/.
+✔ Writing tests/testthat.R.
+☐ Call usethis::use_test() to initialize a basic test file and open it for editing.
+```
+
+*Note that we now have a `tests/testthat/` folder and a `tests/testthat.R` file.*
+
+- [ ] Create first test
+```r
+usethis::use_test("hello")
+```
+```
+✔ Writing tests/testthat/test-hello.R.
+☐ Modify tests/testthat/test-hello.R.
+```
+
+## Test File
+
+The test file is created in the `tests/testthat/` folder. The file is named `test-hello.R`. The file contains the following:
+
+```r
+test_that("multiplication works", {
+  expect_equal(2 * 2, 4)
+})
+```
+This does test what we need to test.
+
+- [ ] Write test
+
+```r
+test_that("hello world", {
+  expect_output(hello(), "Hello, world!")
+})
+```
+
+## Run Tests
+
+- [ ] Run Tests
+
+```r
+devtools::test() # Or Ctrl+Shift+T or the Test button on The build tab.
+```
+Output:
+```
+==> devtools::test()
+
+ℹ Testing ExampleRPkg
+✔ | F W  S  OK | Context
+✔ |          1 | hello                                                             
+
+══ Results ════════════════════════════════════════════════════════════════════════
+[ FAIL 0 | WARN 0 | SKIP 0 | PASS 1 ]
+```
+
+## Test Structure
+
+```r
+# Context provided by file name or changed by
+context("Explanation")
+test_that("A description of what is being tested", {
+  # With tests describes by 'Expected' behavior
+  expect_true("I am the greatest R programmer of all time.")
+  # Which would fail as the string is not 'True'
+})
+```
+
+## Expectations
+All expectations are prefixed with `expect_` and are used to test the behavior. 
+Some common expectations are:
+
+- `expect_true`, `expect_false` - logical values.
+- `expect_equal`, `expect_identical`,  `expect_equivalent` - equality.
+- `expect_error`, `expect_warning`, `expect_message` - errors, warnings, and messages.
+- `expect_output` - output (optionally specific) to the console.
+- `expect_silent` - no output to the console.
+
+## More tests
+
+```r
+test_that("hello world", {
+  expect_output(hello(), "Hello, world!")
+  sink(nullfile()) #< To suppress output
+    expect_equal(hello(), "Hello, world!")
+    expect_invisible(hello())
+  sink()
+})
+```
+```
+==> devtools::test()
+
+ℹ Testing ExampleRPkg
+✔ | F W  S  OK | Context
+✔ |          3 | hello                                                             
+
+══ Results ════════════════════════════════════════════════════════════════════════
+[ FAIL 0 | WARN 0 | SKIP 0 | PASS 3 ]
+```
+
+## Checkpoint
+
+Time for a git commit. 
+
+```sh
+git commit -a -m"Documented and tested hello function."
+```
+
+# Checking
+
+## Package Workflow
+
+- [x] Create a new package.
+- [X] Load Package
+- [X] Document Package
+- [X] Test Package
+- [ ] Check Package
+- [ ] Install Package
+- [ ] ...
+
+## What is Checking
+
+Checking is a more extensive test of the package. It checks for issues that may not be caught by the tests. In order to release to CRAN for BioConductor, a package **MUST** pass `R CMD check`.
+
+* `DESCRIPTION` is proper and in order
+* `NAMESPACE` is proper and in order
+* `R` code is properly documented
+* all tests pass
+* all examples run without error
+* all vignettes build without error
+* all data is properly documented
+* file structure is proper
+* license is a proper license
+* variable scoping is proper
+* ...
+
+
+## Check Output
+
+There are three types of outputs for checks:
+
+* `ERROR` - the package is not in a releasable state.
+* `WARNING` - Issues that need to be resolved were identified.
+* `NOTE` - Suggestions for improvement.  These should be minimized.
+
+```r
+devtools::check()
+```
+```
+<<Output ommitted>>
+── R CMD check results ───────────────────────────────────── ExampleRPkg 0.1.0 ────
+Duration: 34.1s
+
+❯ checking DESCRIPTION meta-information ... WARNING
+  Non-standard license specification:
+    What license is it under?
+  Standardizable: FALSE
+
+0 errors ✔ | 1 warning ✖ | 0 notes ✔
+Error: R CMD check found WARNINGs
+```
+
+## Licensing
+
+The license field in the `DESCRIPTION` file is a common issue. The license should be a standard license. The most common licenses are:
+
+* `GPL-3` - GNU General Public License v3.0
+* `MIT` - MIT License
+* `Apache-2.0` - Apache License 2.0
+
+It is possible to have a commercial package with a custom license, but this is rare.
+
+```r
+usethis::use_gpl3_license("Copyright Holder")
+usethis::use_mit_license("Copyright Holder")
+usethis::use_apache_license("Copyright Holder")
+```
+
+See <https://r-pkgs.org/license.html> and <https://choosealicense.com> for more information.
+
+## Fixing Licensing
+
+```r
+usethis::use_mit_license("Andrew Redd")
+```
+```
+✔ Adding "MIT + file LICENSE" to License.
+✔ Writing LICENSE.
+✔ Writing LICENSE.md.
+✔ Adding "^LICENSE\\.md$" to .Rbuildignore.
+```
+
+```r
+devtools::check()
+```
+```
+
+
+
+
+## A Warning
+
+You will spend a lot of time in Check and Re-Check. It is not uncommon to have to go through the process multiple times, each time revealing more issues that then have to be fixed.
+
+# Install 
+## Package Workflow
+
+- [X] ...
+- [X] Document Package
+- [X] Test Package
+- [X] Check Package
+- [ ] **Install Package**
+- [ ] Add Vignette
+- [ ] Add Compiled Code
+- [ ] ...
+
+## Install Package
+
+To install the package, use the `install` function from the `devtools` package (Ctrl+Shift+B).
+
+```r
+devtools::install()
+```
+```
+* installing to library 'C:/Users/u0092104/AppData/Local/R/win-library/4.4'
+* installing *source* package 'ExampleRPkg' ...
+** using staged installation
+** R
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (ExampleRPkg)
+```
+
+# Vignettes
+## Package Workflow
+
+- [X] ...
+- [X] Document Package
+- [X] Test Package
+- [X] Check Package
+- [X] Install Package
+- [ ] **Add Vignette**
+- [ ] Add Compiled Code
+- [ ] ...
+
+## What is a Vignette
+
+A vignette is a long-form guide to your package. It is a document that describes **the package** in detail, not just individual functions. Vignettes are written in R Markdown and are compiled to HTML, PDF, or Word.
+
+Examples:
+* `ggplot2` Introduction - [CRAN](https://cran.r-project.org/web/packages/ggplot2/vignettes/ggplot2.html) [PkgDown](https://ggplot2.tidyverse.org/articles/ggplot2.html)
+[Source](https://github.com/tidyverse/ggplot2/blob/main/vignettes/ggplot2.Rmd)
+* `tidyr` Nested Data - [CRAN](https://cran.r-project.org/web/packages/tidyr/vignettes/nest.html)
+[PkgDown](https://tidyr.tidyverse.org/articles/nest.html)
+[Source](https://github.com/tidyverse/tidyr/blob/main/vignettes/nest.Rmd)
+
+
+## Add Vignette
+
+```r 
+usethis::use_vignette("hello")
+```
+```
+✔ Setting active project to "C:/Users/u0092104/OneDrive - University of
+  Utah/Projects/ForeSITE/ExampleRPkg".
+✔ Adding knitr to Suggests field in DESCRIPTION.
+✔ Adding rmarkdown to Suggests field in DESCRIPTION.
+✔ Adding "knitr" to VignetteBuilder.
+✔ Adding "inst/doc" to .gitignore.
+✔ Creating vignettes/.
+✔ Adding "*.html" and "*.R" to vignettes/.gitignore.
+✔ Writing vignettes/hello.Rmd.
+☐ Modify vignettes/hello.Rmd.
+```
+
+## Vignette File
+
+The vignette file is created in the `vignettes/` folder. The file is named `hello.Rmd`.  It is structured like any other R Markdown file, with a couple of special features.
+The first section marked by `---` is the YAML header. The YAML header contains metadata about the vignette. The second section is the body of the vignette.
+
+
+## Vignette YAML
+
+```yaml
+title: "hello"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{hello}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+```
