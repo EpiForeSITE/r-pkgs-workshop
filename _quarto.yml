@@ -1,17 +1,26 @@
 project:
   type: website
   output-dir: 'docs'
+  
 
 website:
   title: "Writing R Packages for the Public Good: A workshop"
   body-footer: <text style="text-align:center">ForeSITE</text>
   repo-url: https://github.com/EpiForeSITE/r-pkgs-workshop
+  repo-actions: [edit, source]
   navbar:
     logo: logo.png
     left:
       - href: index.qmd
         text: Home
       - program.qmd
+    right:
+      - text: Git
+        menu: 
+        - href: git/slides.qmd
+          text: Intro to Git slides
+        - href: git/lab.qmd
+          text: Intro to Git lab
 
 format:
   html:
@@ -19,5 +28,5 @@ format:
     css: styles.css
     toc: true
 
-
-
+execute: 
+  freeze: auto

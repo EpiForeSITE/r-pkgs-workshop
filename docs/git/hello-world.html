@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-10-08">
+<meta name="author" content="Truly Yours">
+<meta name="dcterms.date" content="2024-11-06">
 
-<title>Welcome! – Writing R Packages for the Public Good: A workshop</title>
+<title>Hello World – Writing R Packages for the Public Good: A workshop</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,25 +22,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,7 +104,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -79,10 +114,10 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./logo.png" alt="" class="navbar-logo">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../logo.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Writing R Packages for the Public Good: A workshop</span>
     </a>
   </div>
@@ -93,11 +128,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./program.html"> 
+    <a class="nav-link" href="../program.html"> 
 <span class="menu-text">Program</span></a>
   </li>  
 </ul>
@@ -108,11 +143,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-git">    
         <li>
-    <a class="dropdown-item" href="./git/slides.html">
+    <a class="dropdown-item" href="../git/slides.html">
  <span class="dropdown-text">Intro to Git slides</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./git/lab.html">
+    <a class="dropdown-item" href="../git/lab.html">
  <span class="dropdown-text">Intro to Git lab</span></a>
   </li>  
     </ul>
@@ -133,44 +168,39 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#about-the-workshop" id="toc-about-the-workshop" class="nav-link active" data-scroll-target="#about-the-workshop">About the workshop</a>
+  <li><a href="#first-level-header" id="toc-first-level-header" class="nav-link active" data-scroll-target="#first-level-header">First level header</a>
   <ul class="collapse">
-  <li><a href="#time-and-location" id="toc-time-and-location" class="nav-link" data-scroll-target="#time-and-location">Time and location</a></li>
-  <li><a href="#what-would-be-good-uses-for-an-r-package" id="toc-what-would-be-good-uses-for-an-r-package" class="nav-link" data-scroll-target="#what-would-be-good-uses-for-an-r-package">What would be good uses for an R package?</a></li>
-  <li><a href="#who-should-attend" id="toc-who-should-attend" class="nav-link" data-scroll-target="#who-should-attend">Who should attend?</a></li>
-  <li><a href="#what-tools-will-be-used-during-the-workshop" id="toc-what-tools-will-be-used-during-the-workshop" class="nav-link" data-scroll-target="#what-tools-will-be-used-during-the-workshop">What tools will be used during the workshop?</a></li>
+  <li><a href="#second-level-header" id="toc-second-level-header" class="nav-link" data-scroll-target="#second-level-header">Second level header</a></li>
   </ul></li>
-  <li><a href="#registration" id="toc-registration" class="nav-link" data-scroll-target="#registration">Registration</a></li>
-  <li><a href="#funding" id="toc-funding" class="nav-link" data-scroll-target="#funding">Funding</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/EpiForeSITE/r-pkgs-workshop/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EpiForeSITE/r-pkgs-workshop/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/EpiForeSITE/r-pkgs-workshop/edit/main/git/hello-world.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EpiForeSITE/r-pkgs-workshop/blob/main/git/hello-world.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Welcome!</h1>
+<h1 class="title">Hello World</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Truly Yours </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 8, 2024</p>
+      <p class="date">November 6, 2024</p>
     </div>
   </div>
   
-    <div>
-    <div class="quarto-title-meta-heading">Modified</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date-modified">October 8, 2024</p>
-    </div>
-  </div>
     
   </div>
   
@@ -179,41 +209,31 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>R packages are a fundamental tool for reproducibility and code sharing. Scientists and data analysts can use R packages to share new methods and improve data processing pipelines. This workshop is designed to provide a practical introduction to developing R packages. The workshop will be structured in two parts: Practical foundations of writing and a hackathon. The practical foundations will provide a start-to-finish example that attendees can follow. The hackathon component will be oriented to developing attendees’ own R packages, expecting them to complete the workshop with their own package.</p>
-<section id="about-the-workshop" class="level2">
-<h2 class="anchored" data-anchor-id="about-the-workshop">About the workshop</h2>
-<section id="time-and-location" class="level3">
-<h3 class="anchored" data-anchor-id="time-and-location">Time and location</h3>
-<p>The workshop will take place on Friday, November 8th, 2024 at the University of Utah, Salt Lake City, UT. More details will be provided to registered attendees.</p>
-</section>
-<section id="what-would-be-good-uses-for-an-r-package" class="level3">
-<h3 class="anchored" data-anchor-id="what-would-be-good-uses-for-an-r-package">What would be good uses for an R package?</h3>
-<ul>
-<li>You have a set of functions repeated across R scripts that you would like to register as a collection within an R package.</li>
-<li>You have a Shiny App you would like to share with colleagues so they can run it locally (for example) on their laptops.</li>
-<li>You have a function that runs a simulation/estimation/analysis that you plan or are already using repeatedly.</li>
-<li>You have some data that you would like to share with others or yourself in a simpler way.</li>
-<li>Etc.</li>
-</ul>
-</section>
-<section id="who-should-attend" class="level3">
-<h3 class="anchored" data-anchor-id="who-should-attend">Who should attend?</h3>
-<p>R programming users looking to learn how to write an R package, hopefully already having an idea/project for their own package. What level of programming should attendees have? Attendees should have experience using the R programming language. To get the most out of the workshop, they should have a working knowledge of programming concepts such as writing functions data manipulation using tools like dplyr, base R, or data.table.</p>
-</section>
-<section id="what-tools-will-be-used-during-the-workshop" class="level3">
-<h3 class="anchored" data-anchor-id="what-tools-will-be-used-during-the-workshop">What tools will be used during the workshop?</h3>
-<p>Besides the R programming language, we will be using Rstudio.</p>
-</section>
-</section>
-<section id="registration" class="level2">
-<h2 class="anchored" data-anchor-id="registration">Registration</h2>
-<p>For registration, please reach out to your ForeSITE contact. You can also email us at <a href="mailto:george.vegayon@utah.edu" class="email">george.vegayon@utah.edu</a>.</p>
-</section>
-<section id="funding" class="level2">
-<h2 class="anchored" data-anchor-id="funding">Funding</h2>
-<p>This workshop is organized by ForeSITE using funds from the CDC’s Center for Forecasting and Outbreak Analytics (CFA) (Award number 1U01CK000585; 75D30121F00003).</p>
+<section id="first-level-header" class="level1">
+<h1>First level header</h1>
+<section id="second-level-header" class="level2">
+<h2 class="anchored" data-anchor-id="second-level-header">Second level header</h2>
+<p>Some text that goes along with the document</p>
+<p>Code chunks can have tags, like the one here</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(pi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.772454</code></pre>
+</div>
+</div>
+<p>And also, they can have options. For example, if you don’t want the source code to be printed out, you add the option <code>echo: false</code> as in the following code chunk</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hello-world_files/figure-html/second-code-chunk-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
+</section>
 </section>
 
 <p><text style="text-align:center">ForeSITE</text></p></main> <!-- /main -->
@@ -642,4 +662,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EpiForeSITE/r-pkgs-workshop/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EpiForeSITE/r-pkgs-workshop/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EpiForeSITE/r-pkgs-workshop/edit/main/git/hello-world.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EpiForeSITE/r-pkgs-workshop/blob/main/git/hello-world.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
