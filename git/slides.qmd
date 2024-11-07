@@ -1,54 +1,19 @@
----
+
 title: "Version control and reproducible research"
 subtitle: "PHS 7045: Advanced Programming"
 author: "George G. Vega Yon, Ph.D."
 date: 2024-11-06
-date-modified: 2024-11-06
+date-modified: 2024-11-07
 format:
   html:
     embed-resources: true
----
+
 
 ::: {.callout-note}
 The content of this lab is based on UofU's PHS 7045 (Advanced Programming with R and HPC) ([link](https://github.com/UofUEpiBio/PHS7045-advanced-programming){target="_blank"}).
 :::
 
 # Preamble
-
-## Welcome to "PHS 7045: Advanced Programming"
-
-::: {.r-fit-text}
-
-Before we start with the class:
-
-::: {.fragment .fade-up}
-- Who are you, and what do you expect to get from the class?
-:::
-
-::: {.fragment .fade-up}
-- Who am I, and what do I expect to get from you?
-:::
-
-::: {.fragment .fade-up}
-- Workflow:
-
-  - All submissions (labs, assignments, midterm, and final) through [GitHub](https://github.com/UofUEpiBio/PHS7045-advanced-programming).
-
-  - Submissions must be using [quarto](https://quarto.org), [Rmarkdown](https://rmarkdown.rstudio.com/), or similar (like [this presentation](https://github.com/UofUEpiBio/PHS7045-advanced-programming/blob/629f4654a6288a305261b5c7b8e51ddfed354256/lectures/01-git/slides.qmd)!).
-
-  - Weekly readings.
-
-  - Two weekly sessions: Lecture + Lab.
-
-  - One big project to be completed: Midterm and Final.
-:::
-
-::: {.fragment .fade-up}
-- More details on the syllabus.
-:::
-
-:::
-
 
 ## Today's lesson
 
@@ -88,25 +53,17 @@ Throughout the course, we will be using the following tools:
 
 ## What is 'version control.'
 
-::: {.columns style="text-align: center"}
-
-::: {.column width="80%"}
 [I]s the <strong>management of changes</strong> to documents [...] <strong>Changes are usually identified</strong> by a number or letter code, termed the "revision number", "revision level", or simply "revision". For example, an initial set of files is "revision 1". When the first change is made, the resulting set is "revision 2", and so on. <strong>Each revision is associated with a timestamp and the person making the change</strong>. Revisions can be <strong>compared</strong>, <strong>restored</strong>, and with some types of files, <strong>merged</strong>. -- <a href="https://en.wikipedia.org/w/index.php?title=Version_control&oldid=948839536" target="_blank">Wiki</a>
-:::
 
-::: {.column width="20%"}
+
 ![](https://upload.wikimedia.org/wikipedia/commons/a/af/Revision_controlled_project_visualization-2010-24-02.svg)
 <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Revision_controlled_project_visualization-2010-24-02.svg" alt="Diagram of version control" width="100%"> -->
-:::
-:::
 
----
 
 ## Why do we care 
 
 Have you ever:
 
-::: {.r-fit-text}
 
 ::: {.fragment .fade-in}
 - Made a **change to code**, realised it was a **mistake** and wanted to **revert** back?
@@ -132,13 +89,6 @@ Have you ever:
 - Wanted to **review the history** of some code?
 :::
 
-:::
-
----
-
-## Why do we care (cont'd) 
-
-::: {.r-fit-text}
 
 ::: {.fragment .fade-in}
 - Wanted to submit a **change** to **someone else's code**?
@@ -162,9 +112,6 @@ In these cases, and no doubt others, a version control system should make your l
 -- [Stackoverflow](https://stackoverflow.com/a/1408464/2097171) (by [si618](https://stackoverflow.com/users/44540/si618))
 :::
 
-:::
-
----
 
 ## Git: The stupid content tracker 
 
@@ -187,8 +134,6 @@ During this class (and perhaps, the entire program,) we will be using
 
 :::
 
----
-
 ## How can I use Git
 
 There are several ways to include Git in your work pipeline. A few are:
@@ -205,18 +150,14 @@ There are several ways to include Git in your work pipeline. A few are:
 
 More alternatives [here](https://git-scm.com/download/gui).
 
----
-
 ## A Common workflow
 
-![](fig/git.svg){fig-alt="Git workflow" fig-align="center" width="auto"}
+![](fig/git.svg){fig-alt="Git workflow" fig-align="center" width="100%"}
 
 ::: {style="font-size: 80%"}
 Git has a ton of features, but the daily workflow only features a handful of commands: `git pull`, `git add`, `git commit`, and `git push`:
 :::
 
-
----
 
 ## A Common workflow 
 
@@ -264,7 +205,7 @@ $ git config --global user.email "jperez@treschanchitos.edu"
 
 Try it yourself (5 minutes) (more on how to configure git <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration" target="_blank">here</a>)
 
----
+
 
 ## Hands-on 1: Local repository
 
@@ -276,7 +217,7 @@ you can keep things local and skip Github. For this exercise, you need to
 
 ::: {.fragment .fade-in}
 a.  Create a new folder with the name of your project (you can try
-   `PHS7045-first-project`)
+   `foresite-project`)
 :::
    
 ::: {.fragment .fade-in}
@@ -309,7 +250,7 @@ Note 2: Need a text editor? Check out this website [link](https://alternativeto.
 
 :::
 
----
+
 
 ## Hands-on 1: Local repository (solution)
 
@@ -317,8 +258,8 @@ The following code is fully executable (copy-pastable)
 
 ```sh
 # (a) Creating the folder for the project (and getting in there)
-mkdir ~/PHS7045-first-project
-cd ~/PHS7045-first-project
+mkdir ~/foresite-project
+cd ~/foresite-project
 
 # (b) Initializing git, creating a file, and adding the file
 git init
@@ -335,7 +276,7 @@ git commit -m "My first commit ever!"
 git log
 ```
 
----
+
 
 ## Hands-on 1: Local repository
 
@@ -361,7 +302,7 @@ a. Create an online repository (empty) for your project using [Github](https://g
 b. Add the remote using `git remote add`, in particular
 
   ```sh
-  $ git remote add origin https://github.com/[your user name]/PHS7045-first-project.git
+  $ git remote add origin https://github.com/[your user name]/foresite-project.git
   ```
   
   Then, use the commands `git status` and `git remote -v` to see what's going on.
@@ -379,29 +320,13 @@ c. Push the changes to the remote using `git push` like this:
 
 :::
 
----
+
 
 ## Hands-on 2: Remote repository (solutions a)
 
-<div style="text-align: center;">
-  <figure>
-    <img style="width: 800px;vertical-align: middle;"  hspace="20px" src="fig/new-github-repo-step1.png" alt="New GitHub repo">
-  </figure>
-  <!-- <figcaption><b>A common git workflow</b></figcaption> -->
-</div>
+![New GitHub repo 1](fig/new-github-repo-step1.png){width="90%"}
 
----
-
-## Hands-on 2: Remote repository (solutions a)
-
-<div style="text-align: center;">
-  <figure>
-    <img style="width: 600px;vertical-align: middle;"  hspace="20px" src="fig/new-github-repo-step2.png" alt="New GitHub repo 2">
-  </figure>
-  <!-- <figcaption><b>A common git workflow</b></figcaption> -->
-</div>
-
----
+![New GitHub repo 2](fig/new-github-repo-step2.png){width="90%"}
 
 ## Hands-on 2: Remote repository (solutions b)
 
@@ -409,7 +334,7 @@ For part (b), there are a couple of solutions, first, you could try using your s
 
 ```sh
 # (b)
-git remote add origin git@github.com:gvegayon/PHS7045-first-project.git
+git remote add origin git@github.com:gvegayon/foresite-project.git
 git remote -v
 git status
 ```
@@ -419,12 +344,12 @@ every time you want to push (and pull, if private).
 
 ```sh
 # (b)
-git remote add origin https://github.com/gvegayon/PHS7045-first-project.git
+git remote add origin https://github.com/gvegayon/foresite-project.git
 git remote -v
 git status
 ```
 
----
+
 
 ## Hands-on 2: Remote repository (solutions c)
 
@@ -438,7 +363,7 @@ git status
 
 The `--set-upstream`, which was invoked with `-u`, will set the tracking reference for `pull` and `push`.
 
----
+
 
 ## Example for .gitignore
 

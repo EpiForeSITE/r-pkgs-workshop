@@ -21,15 +21,13 @@ In **this lab**[^credits], you are expected to learn/put into practice the follo
 - Git workflow clone/commit/push
 - Using pull requests (PR)
 
-The last bit of the lab will deal with GitHub Classrooms. While this is not a fundamental tool for academia/industry, we will be using this tool throughout the course, meaning that your grade will depend on it :).
-
 # Updating a single repo
 
 One of the most common tasks that people use git for is collaborating. While in general team members organize such that there are no overlapping editing of the files, git is smart enough to avoid clashes when multiple edits are done in the same document[^multiedits]. To show this, we will do a collaborative edit of a file!
 
 [^multiedits]: Team members could be working on the same file but editing different lines of code. If this is the case, after pull/push, git will integrate the changes without conflicts. 
 
-We will be working with the repository https://github.com/UofUEpiBio/PHS7045-whoami
+We will be working with the repository <https://github.com/EpiForeSITE/whoamit>
 
 ## Step 1: For the project in your repo
 
@@ -50,17 +48,9 @@ Once you "Fork" a project, GitHub will:
 
 2. Set up a pipeline to generate pull requests.
 
-<figure>
-<img src="https://github-images.s3.amazonaws.com/help/pull_requests/recently_pushed_branch.png" width="600px">
-<figcaption>Source: GitHub Help</figcaption>
-</figure>
+![](fig/fork.png){width=90%}
 
-Or 
 
-<figure>
-<img src="https://user-images.githubusercontent.com/893619/132388465-849ef04d-ad4f-4365-a646-27e88cb9d828.png" width="600px">
-<figcaption>Source: Screenshot!</figcaption>
-</figure>
 
 Once you have a copy of the project in your account, you can proceed by "downloading it" to your computer using the `git clone` command. For example, if your GitHub user name is `statsnerd` and the original repository is `Spoon-Knife` (as in the example), you could use the following in your command line
 
@@ -109,10 +99,7 @@ This is the final step. Overall, pull requests (PR) are as complex as the propos
 
 To create the PR, you just need to go to your online copy of the project and click on the "Compare & pull request" link:
 
-<figure>
-<img src="https://github-images.s3.amazonaws.com/help/pull_requests/recently_pushed_branch.png" width="600px">
-<figcaption>Source: GitHub Help</figcaption>
-</figure>
+![](https://user-images.githubusercontent.com/893619/132388465-849ef04d-ad4f-4365-a646-27e88cb9d828.png){width=90%}
 
 This will create a PR in the reference repository. GitHub will automatically analyze the PR and check whether merging the PR to the master branch will result in a conflict or not. If all is OK, then the owner/admin of the repository can merge the PR. Otherwise, if there's a conflict, you can go back to your local repo, make the needed changes, commit the changes, and push the changes to your copy on Git Hub. In this stage, the PR will automatically update to reflect the new changes you made in your copy of the project.
 
