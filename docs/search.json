@@ -182,6 +182,405 @@
     "text": "Example for .gitignore\nExample extracted directly from Pro-Git (link).\n# ignore all .a files\n*.a\n\n# but do track lib.a, even though you're ignoring .a files above\n!lib.a\n\n# only ignore the TODO file in the current directory, not subdir/TODO\n/TODO\n\n# ignore all files in any directory named build\nbuild/\n\n# ignore doc/notes.txt, but not doc/server/arch.txt\ndoc/*.txt\n\n# ignore all .pdf files in the doc/ directory and any of its subdirectories\ndoc/**/*.pdf"
   },
   {
+    "objectID": "packages/package-slides.html#what-is-an-r-package",
+    "href": "packages/package-slides.html#what-is-an-r-package",
+    "title": "Packages Workshop",
+    "section": "What is an R Package?",
+    "text": "What is an R Package?\nCode (Functions) + Documentation (Help & Vignettes) + Data (Datasets) + ... = Package"
+  },
+  {
+    "objectID": "packages/package-slides.html#why-create-an-r-package",
+    "href": "packages/package-slides.html#why-create-an-r-package",
+    "title": "Packages Workshop",
+    "section": "Why Create an R Package?",
+    "text": "Why Create an R Package?\n\nReproducibility: Packages make it easy to share your code and data with others.\nOrganization: Packages help you organize your code and data.\nCollaboration: Packages make it easy to collaborate with others.\nDistribution: Packages make it easy to distribute your code and data."
+  },
+  {
+    "objectID": "packages/package-slides.html#use-cases",
+    "href": "packages/package-slides.html#use-cases",
+    "title": "Packages Workshop",
+    "section": "Use Cases",
+    "text": "Use Cases\n\nPersonal: Organize your code and data.\nTeam: Collaborate with others.\nPublic: Share your code and data with the world.\nPrivate: Share your code and data with a select group of people."
+  },
+  {
+    "objectID": "packages/package-slides.html#setup",
+    "href": "packages/package-slides.html#setup",
+    "title": "Packages Workshop",
+    "section": "Setup",
+    "text": "Setup\nYou will need a current setup of R and RStudio. You can download R from https://cran.r-project.org and RStudio from https://www.rstudio.com/products/rstudio/download/. If you are going to include compiled code, C/C++ or FORTRAN, you will also need a current setup of Rtools (if on windows). You can download Rtools from https://cran.r-project.org/bin/windows/Rtools/. The following packages are also helpful, will be used here, but not strictly required."
+  },
+  {
+    "objectID": "packages/package-slides.html#recommended-packages",
+    "href": "packages/package-slides.html#recommended-packages",
+    "title": "Packages Workshop",
+    "section": "Recommended Packages",
+    "text": "Recommended Packages\n\ndevtools - for package development\nroxygen2 - for documentation\ntestthat - for testing\nusethis - for package setup\nknitr - for vignettes\nrmarkdown - for vignettes\npkgdown - for package websites, will not be covered here.\n\ninstall.packages(c(\"devtools\", \"roxygen2\", \"testthat\", \"usethis\", \"knitr\", \"rmarkdown\", \"pkgdown\"))"
+  },
+  {
+    "objectID": "packages/package-slides.html#create-a-package",
+    "href": "packages/package-slides.html#create-a-package",
+    "title": "Packages Workshop",
+    "section": "Create a Package",
+    "text": "Create a Package\nYou can create a new package using the RStudio IDE.\n\nClick on the File menu.\nClick on the New Project menu item.\nClick on the New Directory menu item.\nClick on the R Package menu item.\nClick on the Create Project button.\n\nDo this now."
+  },
+  {
+    "objectID": "packages/package-slides.html#create-a-package-continued",
+    "href": "packages/package-slides.html#create-a-package-continued",
+    "title": "Packages Workshop",
+    "section": "Create a Package, Continued",
+    "text": "Create a Package, Continued\nAlternatively you can create a new package using the usethis or devtools packages.\nusethis::create_package(\"mypackage\")\ndevtools::create(\"mypackage\")"
+  },
+  {
+    "objectID": "packages/package-slides.html#checkpoint",
+    "href": "packages/package-slides.html#checkpoint",
+    "title": "Packages Workshop",
+    "section": "Checkpoint",
+    "text": "Checkpoint\n\nUse git to create a checkpoint.\n\nUnder the git tab of the RStudio IDE, click on the Commit button.\nAdd all the files and folders\nWrite a commit message, “Initial Commit” is most common.\nClick on the Commit button.\n\n\nAlternatively you can use the command line, under the Terminal tab (next to console) of the RStudio IDE.\ngit commit -a -m\"Initial Commit\""
+  },
+  {
+    "objectID": "packages/package-slides.html#package-structure",
+    "href": "packages/package-slides.html#package-structure",
+    "title": "Packages Workshop",
+    "section": "Package Structure",
+    "text": "Package Structure\nLet’s look at the files and folders created in detail.\n\nDESCRIPTION - package metadata\nNAMESPACE - package namespace\nR/ - R code files\nman/ - help files, an antiquated way to document functions.\n.gitignore - git ignore file. Anything listed here is ignored by git.\n.Rbuildignore - build ignore file, files listed here are ignored by the R package build process."
+  },
+  {
+    "objectID": "packages/package-slides.html#folders-that-will-be-added",
+    "href": "packages/package-slides.html#folders-that-will-be-added",
+    "title": "Packages Workshop",
+    "section": "Folders that will be added",
+    "text": "Folders that will be added\nAs we go along more folders may be added to the package.\n\ndata/ - data files\ninst/ - installed files\nvignettes/ - vignettes\ntests/ - tests\nsrc/ - source code for compiled code"
+  },
+  {
+    "objectID": "packages/package-slides.html#description",
+    "href": "packages/package-slides.html#description",
+    "title": "Packages Workshop",
+    "section": "DESCRIPTION",
+    "text": "DESCRIPTION\nThe DESCRIPTION file is a required text metadata file that contains information(fields) about the package.The fields are key-value pairs separated by a colon."
+  },
+  {
+    "objectID": "packages/package-slides.html#description-primary-fields",
+    "href": "packages/package-slides.html#description-primary-fields",
+    "title": "Packages Workshop",
+    "section": "DESCRIPTION, Primary Fields",
+    "text": "DESCRIPTION, Primary Fields\n\nPackage - the name of the package.\nType - always ‘Package’, except for very special cases.\nTitle - the title of the package.\nVersion - the version of the package.\nAuthor - the author of the package. Superseded by Authors@R field, to be covered later.\nMaintainer - who does CRAN notify about errors.\nDescription - a description of the package.\nLicense - the license of the package."
+  },
+  {
+    "objectID": "packages/package-slides.html#description-continued",
+    "href": "packages/package-slides.html#description-continued",
+    "title": "Packages Workshop",
+    "section": "DESCRIPTION, Continued",
+    "text": "DESCRIPTION, Continued\nThe DESCRIPTION file can also contain other fields. Some of the more common fields are:\n\nURL,BugReports - the URLs of the package, and bug tracker.\nDepends - packages loaded with this package.\nImports - packages needed for this package\nSuggests - Additional packages not strictly necessary but used for testing or additional functionality if available."
+  },
+  {
+    "objectID": "packages/package-slides.html#namespace",
+    "href": "packages/package-slides.html#namespace",
+    "title": "Packages Workshop",
+    "section": "NAMESPACE",
+    "text": "NAMESPACE\nThe NAMESPACE is a required file for all packages. It determines what functions are exported (public) from the package and what functions are imported from other packages.\nManagement of the NAMESPACE file is now typically done by the roxygen2 package, although it can be done manually."
+  },
+  {
+    "objectID": "packages/package-slides.html#r-folder",
+    "href": "packages/package-slides.html#r-folder",
+    "title": "Packages Workshop",
+    "section": "R Folder",
+    "text": "R Folder\nThe R/ folder contains the R code files for the package. The R code files should contain the functions that are part of the package. Some good practices for the R/ folder are:\n\nName the R code files after the functions they contain. For example, the function hello should be in a file named hello.R.\nOpt for more files with fewer functions over fewer files with more functions.\nUse the roxygen2 package to document the functions in the R code files."
+  },
+  {
+    "objectID": "packages/package-slides.html#example-package",
+    "href": "packages/package-slides.html#example-package",
+    "title": "Packages Workshop",
+    "section": "Example Package",
+    "text": "Example Package\nThe package structure created by RStudio contains one file, hello.R. The file contains the following:\n\nLines 1-14 are a (normal) comment block.\nLines 16-18 are the function hello."
+  },
+  {
+    "objectID": "packages/package-slides.html#man-folder",
+    "href": "packages/package-slides.html#man-folder",
+    "title": "Packages Workshop",
+    "section": "man folder",
+    "text": "man folder\nThe man/ folder contains the help files for the package. The help files are an antiquated way to document functions. The roxygen2 package is now the preferred way to document functions."
+  },
+  {
+    "objectID": "packages/package-slides.html#devtools",
+    "href": "packages/package-slides.html#devtools",
+    "title": "Packages Workshop",
+    "section": "devtools",
+    "text": "devtools\nThe devtools package is a collection of tools for package development. Some of the functions in the devtools package are:\n\nload_all (Ctrl+Shift+L) - loads the package into the current R session.\ndocument (Ctrl+Shift+D) - documents the package.\ninstall (Ctrl+Shift+B) - installs the package.\ntest (Ctrl+Shift+T) - tests the package.\ncheck (Ctrl+Shift+E) - checks the package, more extensive than test.\nspell_check - spell checks the package."
+  },
+  {
+    "objectID": "packages/package-slides.html#usethis",
+    "href": "packages/package-slides.html#usethis",
+    "title": "Packages Workshop",
+    "section": "usethis",
+    "text": "usethis\nThe usethis package is a collection of tools to assist with common package development tasks. The functions take the form of use_*, for example:\n\nuse_data - adds a data file to the data/ folder.\nuse_vignette - adds a vignette to the vignettes/ folder.\nuse_test - adds a test file to the tests/ folder.\nuse_r - adds an R file to the R/ folder.\nuse_rcpp - adds Rcpp to the DESCRIPTION file.\nuse_import_from - adds an import from another package to the NAMESPACE file."
+  },
+  {
+    "objectID": "packages/package-slides.html#roxygen2",
+    "href": "packages/package-slides.html#roxygen2",
+    "title": "Packages Workshop",
+    "section": "roxygen2",
+    "text": "roxygen2\nThe roxygen2 package is a collection of tools for documenting R code. The roxygen2 package uses special comments in the R code files to generate the help files. The special comments are called roxygen tags. We will cover the tags in more detail later."
+  },
+  {
+    "objectID": "packages/package-slides.html#package-workflow",
+    "href": "packages/package-slides.html#package-workflow",
+    "title": "Packages Workshop",
+    "section": "Package Workflow",
+    "text": "Package Workflow\n\nCreate a new package.\nLoad Package\nDocument Package\nTest Package\nCheck Package\nInstall Package\n…"
+  },
+  {
+    "objectID": "packages/package-slides.html#development-workflow",
+    "href": "packages/package-slides.html#development-workflow",
+    "title": "Packages Workshop",
+    "section": "Development Workflow",
+    "text": "Development Workflow\nCredit: Hadley Wickham and Jenny Bryan, R Packages(2e)"
+  },
+  {
+    "objectID": "packages/package-slides.html#load-package",
+    "href": "packages/package-slides.html#load-package",
+    "title": "Packages Workshop",
+    "section": "Load Package",
+    "text": "Load Package\nTo load the package into the current R session, use the load_all function from the devtools package (Ctrl+Shift+L).\ndevtools::load_all()\nCheck.\nhello()"
+  },
+  {
+    "objectID": "packages/package-slides.html#package-workflow-1",
+    "href": "packages/package-slides.html#package-workflow-1",
+    "title": "Packages Workshop",
+    "section": "Package Workflow",
+    "text": "Package Workflow\n\nCreate a new package.\nLoad Package\nDocument Package\nTest Package\nCheck Package\nInstall Package\n…"
+  },
+  {
+    "objectID": "packages/package-slides.html#document-package---roxygen2",
+    "href": "packages/package-slides.html#document-package---roxygen2",
+    "title": "Packages Workshop",
+    "section": "Document Package - roxygen2",
+    "text": "Document Package - roxygen2\n\nDocumentation code blocks are denoted with #' at the beginning of the line.\nThe comments are split into 3 implicit sections followed by explicit tags.\nThe implicit sections are Title, Description, and Details.\n\n#' The first list is the Title.\n#' \n#' The second paragraph, separated from the title by an empty line, \n#' is the Description.\n#' \n#' The third paragraph and all subsequent paragraphs, until an \n#' explicit tag, comprise the Details."
+  },
+  {
+    "objectID": "packages/package-slides.html#document-package---roxygen2-tags",
+    "href": "packages/package-slides.html#document-package---roxygen2-tags",
+    "title": "Packages Workshop",
+    "section": "Document Package - roxygen2, Tags",
+    "text": "Document Package - roxygen2, Tags\nExplicit tags denote other parts.\n\n#' @param - function parameters.\n#' @return - function return value.\n#' @examples - examples of the function.\n#' @export - export the function.\n\nSee https://roxygen2.r-lib.org/reference/index.html for more tags."
+  },
+  {
+    "objectID": "packages/package-slides.html#using-roxygen2-setup",
+    "href": "packages/package-slides.html#using-roxygen2-setup",
+    "title": "Packages Workshop",
+    "section": "Using roxygen2 setup",
+    "text": "Using roxygen2 setup\n\nuse_roxygen_md() - use markdown for roxygen2.\nSet RStudio to build documentation:\n\nMenu Tools -&gt; Project Options -&gt; Build Tools\nCheck “Generate documentation with Roxygen”\nLeave check marks as is, click okay through."
+  },
+  {
+    "objectID": "packages/package-slides.html#document-function",
+    "href": "packages/package-slides.html#document-function",
+    "title": "Packages Workshop",
+    "section": "Document function",
+    "text": "Document function\n\nAdd documentation to the hello function.\n\n#' Hello, world!\n#' \n#' The universal hello world example done for R. It prints \"Hello, world!\" \n#' to the console.\n#' \n#' The hello world function is a simple function used to illustrate the basics \n#' of syntax an functionality.\n#' @seealso https://en.wikipedia.org/wiki/%22Hello,_World!%22_program\n#' @export\nhello &lt;- function() {\n  print(\"Hello, world!\")\n}"
+  },
+  {
+    "objectID": "packages/package-slides.html#package-workflow-2",
+    "href": "packages/package-slides.html#package-workflow-2",
+    "title": "Packages Workshop",
+    "section": "Package Workflow",
+    "text": "Package Workflow\n\nCreate a new package.\nLoad Package\nDocument Package\nTest Package\nCheck Package\nInstall Package\n…"
+  },
+  {
+    "objectID": "packages/package-slides.html#document-package",
+    "href": "packages/package-slides.html#document-package",
+    "title": "Packages Workshop",
+    "section": "Document Package",
+    "text": "Document Package\nTo document the package, use the document function from the devtools package (Ctrl+Shift+D).\ndevtools::document()\nUnder the build window you should see the output:\n==&gt; devtools::document(roclets = c('rd', 'collate', 'namespace'))\n\nℹ Updating ExampleRPkg documentation\nFirst time using roxygen2. Upgrading automatically...\nSetting `RoxygenNote` to \"7.3.2\"\nℹ Loading ExampleRPkg\n✖ Skipping hello.Rd\nℹ It already exists and was not generated by roxygen2.\n✖ Skipping NAMESPACE\nℹ It already exists and was not generated by roxygen2.\nDocumentation completed"
+  },
+  {
+    "objectID": "packages/package-slides.html#fix-documentation-issues",
+    "href": "packages/package-slides.html#fix-documentation-issues",
+    "title": "Packages Workshop",
+    "section": "Fix Documentation issues",
+    "text": "Fix Documentation issues\n\nSkipping hello.Rd\n\nDelete the file man/hello.Rd.\n\nSkipping NAMESPACE\n\nusethis::use_namespace(roxygen=TRUE) to re-create the NAMESPACE file. You will have to approve a response to a prompt.\n\nre-run devtools::document()"
+  },
+  {
+    "objectID": "packages/package-slides.html#generated-files",
+    "href": "packages/package-slides.html#generated-files",
+    "title": "Packages Workshop",
+    "section": "Generated Files",
+    "text": "Generated Files\nman/hello.Rd:\n% Generated by roxygen2: do not edit by hand\n% Please edit documentation in R/hello.R\n\\name{hello}\n\\alias{hello}\n\\title{Hello, world!}\n\\usage{\nhello()\n}\n\\description{\nThe universal hello world example done for R. It prints \"Hello, world!\"\nto the console.\n}\n\\details{\nThe hello world function is a simple function used to illustrate the basics\nof syntax an functionality.\n}\n\\seealso{\nhttps://en.wikipedia.org/wiki/%22Hello,_World!%22_program\n}\nNAMESPACE:\n# Generated by roxygen2: do not edit by hand\n\nexport(hello)"
+  },
+  {
+    "objectID": "packages/package-slides.html#review-help-file",
+    "href": "packages/package-slides.html#review-help-file",
+    "title": "Packages Workshop",
+    "section": "Review help file",
+    "text": "Review help file\n?hello\nℹ Rendering development documentation for \"hello\"\n\nInspect for issues.\n\nSpelling.\nGrammar.\nIf releasing to CRAN all function should have an @return and an @examples tag.\n\n\n# use spell check\nusethis::use_spell_check()\n✔ Adding spelling to Suggests field in DESCRIPTION.\n✔ Adding \"en-US\" to Language.\nThe following words will be added to the wordlist:\n - https\n - wikipedia\nAre you sure you want to update the wordlist?\n1: Yes\n2: No\ndevtools::spell_check()\n  WORD        FOUND IN\nhttps       hello.Rd:18\nwikipedia   hello.Rd:18"
+  },
+  {
+    "objectID": "packages/package-slides.html#fix-documentation-issues.",
+    "href": "packages/package-slides.html#fix-documentation-issues.",
+    "title": "Packages Workshop",
+    "section": "Fix documentation issues.",
+    "text": "Fix documentation issues.\n\nFix spelling issues by changing see also into a proper link.\nAdd @return\nAdd @examples\n\nR/hello.R:\n#' Hello, world!\n#'\n#' The universal hello world example done for R. It prints \"Hello, world!\"\n#' to the console.\n#'\n#' The hello world function is a simple function used to illustrate the basics\n#' of syntax an functionality.\n#' @seealso [Wikipedia - Hello, World!](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program)\n#' @export\n#' @return Called for side effects. Returns `\"Hello, world!\"` invisibly.\n#' @examples \n#' hello()\nhello &lt;- function() {\n    print(\"Hello, world!\")\n}\ndevtools::document() # Or Ctrl+Shift+D\nBuild output:\n==&gt; devtools::document(roclets = c('rd', 'collate', 'namespace'))\n\nℹ Updating ExampleRPkg documentation\nℹ Loading ExampleRPkg\nWriting hello.Rd\nDocumentation completed\nSpell Check\ndevtools::spell_check()\nNo spelling errors found."
+  },
+  {
+    "objectID": "packages/package-slides.html#package-workflow-3",
+    "href": "packages/package-slides.html#package-workflow-3",
+    "title": "Packages Workshop",
+    "section": "Package Workflow",
+    "text": "Package Workflow\n\nCreate a new package.\nLoad Package\nDocument Package\nTest Package\nCheck Package\nInstall Package\n…"
+  },
+  {
+    "objectID": "packages/package-slides.html#test-frameworks",
+    "href": "packages/package-slides.html#test-frameworks",
+    "title": "Packages Workshop",
+    "section": "Test Frameworks",
+    "text": "Test Frameworks\nTesting can be carried out in a number of ways. Using a testing framework is the simplest. The testthat package is supported by Posit, integrates with the other tools seamlessly, and is the most popular among the options. Alternatives such as tinytest and RUnit exist."
+  },
+  {
+    "objectID": "packages/package-slides.html#testthat",
+    "href": "packages/package-slides.html#testthat",
+    "title": "Packages Workshop",
+    "section": "testthat",
+    "text": "testthat\n\nSetup for testing\n\nusethis::use_testthat()\n✔ Adding testthat to Suggests field in DESCRIPTION.\n✔ Adding \"3\" to Config/testthat/edition.\n✔ Creating tests/testthat/.\n✔ Writing tests/testthat.R.\n☐ Call usethis::use_test() to initialize a basic test file and open it for editing.\nNote that we now have a tests/testthat/ folder and a tests/testthat.R file.\n\nCreate first test\n\nusethis::use_test(\"hello\")\n✔ Writing tests/testthat/test-hello.R.\n☐ Modify tests/testthat/test-hello.R."
+  },
+  {
+    "objectID": "packages/package-slides.html#test-file",
+    "href": "packages/package-slides.html#test-file",
+    "title": "Packages Workshop",
+    "section": "Test File",
+    "text": "Test File\nThe test file is created in the tests/testthat/ folder. The file is named test-hello.R. The file contains the following:\ntest_that(\"multiplication works\", {\n  expect_equal(2 * 2, 4)\n})\nThis does test what we need to test.\n\nWrite test\n\ntest_that(\"hello world\", {\n  expect_output(hello(), \"Hello, world!\")\n})"
+  },
+  {
+    "objectID": "packages/package-slides.html#run-tests",
+    "href": "packages/package-slides.html#run-tests",
+    "title": "Packages Workshop",
+    "section": "Run Tests",
+    "text": "Run Tests\n\nRun Tests\n\ndevtools::test() # Or Ctrl+Shift+T or the Test button on The build tab.\nOutput:\n==&gt; devtools::test()\n\nℹ Testing ExampleRPkg\n✔ | F W  S  OK | Context\n✔ |          1 | hello                                                             \n\n══ Results ════════════════════════════════════════════════════════════════════════\n[ FAIL 0 | WARN 0 | SKIP 0 | PASS 1 ]"
+  },
+  {
+    "objectID": "packages/package-slides.html#test-structure",
+    "href": "packages/package-slides.html#test-structure",
+    "title": "Packages Workshop",
+    "section": "Test Structure",
+    "text": "Test Structure\n# Context provided by file name or changed by\ncontext(\"Explanation\")\ntest_that(\"A description of what is being tested\", {\n  # With tests describes by 'Expected' behavior\n  expect_true(\"I am the greatest R programmer of all time.\")\n  # Which would fail as the string is not 'True'\n})"
+  },
+  {
+    "objectID": "packages/package-slides.html#expectations",
+    "href": "packages/package-slides.html#expectations",
+    "title": "Packages Workshop",
+    "section": "Expectations",
+    "text": "Expectations\nAll expectations are prefixed with expect_ and are used to test the behavior. Some common expectations are:\n\nexpect_true, expect_false - logical values.\nexpect_equal, expect_identical, expect_equivalent - equality.\nexpect_error, expect_warning, expect_message - errors, warnings, and messages.\nexpect_output - output (optionally specific) to the console.\nexpect_silent - no output to the console."
+  },
+  {
+    "objectID": "packages/package-slides.html#more-tests",
+    "href": "packages/package-slides.html#more-tests",
+    "title": "Packages Workshop",
+    "section": "More tests",
+    "text": "More tests\ntest_that(\"hello world\", {\n  expect_output(hello(), \"Hello, world!\")\n  sink(nullfile()) #&lt; To suppress output\n    expect_equal(hello(), \"Hello, world!\")\n    expect_invisible(hello())\n  sink()\n})\n==&gt; devtools::test()\n\nℹ Testing ExampleRPkg\n✔ | F W  S  OK | Context\n✔ |          3 | hello                                                             \n\n══ Results ════════════════════════════════════════════════════════════════════════\n[ FAIL 0 | WARN 0 | SKIP 0 | PASS 3 ]"
+  },
+  {
+    "objectID": "packages/package-slides.html#checkpoint-1",
+    "href": "packages/package-slides.html#checkpoint-1",
+    "title": "Packages Workshop",
+    "section": "Checkpoint",
+    "text": "Checkpoint\nTime for a git commit.\ngit commit -a -m\"Documented and tested hello function.\""
+  },
+  {
+    "objectID": "packages/package-slides.html#package-workflow-4",
+    "href": "packages/package-slides.html#package-workflow-4",
+    "title": "Packages Workshop",
+    "section": "Package Workflow",
+    "text": "Package Workflow\n\nCreate a new package.\nLoad Package\nDocument Package\nTest Package\nCheck Package\nInstall Package\n…"
+  },
+  {
+    "objectID": "packages/package-slides.html#what-is-checking",
+    "href": "packages/package-slides.html#what-is-checking",
+    "title": "Packages Workshop",
+    "section": "What is Checking",
+    "text": "What is Checking\nChecking is a more extensive test of the package. It checks for issues that may not be caught by the tests. In order to release to CRAN for BioConductor, a package MUST pass R CMD check.\n\nDESCRIPTION is proper and in order\nNAMESPACE is proper and in order\nR code is properly documented\nall tests pass\nall examples run without error\nall vignettes build without error\nall data is properly documented\nfile structure is proper\nlicense is a proper license\nvariable scoping is proper\n…"
+  },
+  {
+    "objectID": "packages/package-slides.html#check-output",
+    "href": "packages/package-slides.html#check-output",
+    "title": "Packages Workshop",
+    "section": "Check Output",
+    "text": "Check Output\nThere are three types of outputs for checks:\n\nERROR - the package is not in a releasable state.\nWARNING - Issues that need to be resolved were identified.\nNOTE - Suggestions for improvement. These should be minimized.\n\ndevtools::check()\n&lt;&lt;Output ommitted&gt;&gt;\n── R CMD check results ───────────────────────────────────── ExampleRPkg 0.1.0 ────\nDuration: 34.1s\n\n❯ checking DESCRIPTION meta-information ... WARNING\n  Non-standard license specification:\n    What license is it under?\n  Standardizable: FALSE\n\n0 errors ✔ | 1 warning ✖ | 0 notes ✔\nError: R CMD check found WARNINGs"
+  },
+  {
+    "objectID": "packages/package-slides.html#licensing",
+    "href": "packages/package-slides.html#licensing",
+    "title": "Packages Workshop",
+    "section": "Licensing",
+    "text": "Licensing\nThe license field in the DESCRIPTION file is a common issue. The license should be a standard license. The most common licenses are:\n\nGPL-3 - GNU General Public License v3.0\nMIT - MIT License\nApache-2.0 - Apache License 2.0\n\nIt is possible to have a commercial package with a custom license, but this is rare.\nusethis::use_gpl3_license(\"Copyright Holder\")\nusethis::use_mit_license(\"Copyright Holder\")\nusethis::use_apache_license(\"Copyright Holder\")\nSee https://r-pkgs.org/license.html and https://choosealicense.com for more information."
+  },
+  {
+    "objectID": "packages/package-slides.html#fixing-licensing",
+    "href": "packages/package-slides.html#fixing-licensing",
+    "title": "Packages Workshop",
+    "section": "Fixing Licensing",
+    "text": "Fixing Licensing\nusethis::use_mit_license(\"Andrew Redd\")\n✔ Adding \"MIT + file LICENSE\" to License.\n✔ Writing LICENSE.\n✔ Writing LICENSE.md.\n✔ Adding \"^LICENSE\\\\.md$\" to .Rbuildignore.\ndevtools::check()\n\n\n\n\n## A Warning\n\nYou will spend a lot of time in Check and Re-Check. It is not uncommon to have to go through the process multiple times, each time revealing more issues that then have to be fixed.\n\n# Install \n## Package Workflow\n\n- [X] ...\n- [X] Document Package\n- [X] Test Package\n- [X] Check Package\n- [ ] **Install Package**\n- [ ] Add Vignette\n- [ ] Add Compiled Code\n- [ ] ...\n\n## Install Package\n\nTo install the package, use the `install` function from the `devtools` package (Ctrl+Shift+B).\n\n```r\ndevtools::install()\n* installing to library 'C:/Users/u0092104/AppData/Local/R/win-library/4.4'\n* installing *source* package 'ExampleRPkg' ...\n** using staged installation\n** R\n** byte-compile and prepare package for lazy loading\n** help\n*** installing help indices\n** building package indices\n** testing if installed package can be loaded from temporary location\n** testing if installed package can be loaded from final location\n** testing if installed package keeps a record of temporary installation path\n* DONE (ExampleRPkg)"
+  },
+  {
+    "objectID": "packages/package-slides.html#package-workflow-5",
+    "href": "packages/package-slides.html#package-workflow-5",
+    "title": "Packages Workshop",
+    "section": "Package Workflow",
+    "text": "Package Workflow\n\n…\nDocument Package\nTest Package\nCheck Package\nInstall Package\nAdd Vignette\nAdd Compiled Code\n…"
+  },
+  {
+    "objectID": "packages/package-slides.html#what-is-a-vignette",
+    "href": "packages/package-slides.html#what-is-a-vignette",
+    "title": "Packages Workshop",
+    "section": "What is a Vignette",
+    "text": "What is a Vignette\nA vignette is a long-form guide to your package. It is a document that describes the package in detail, not just individual functions. Vignettes are written in R Markdown and are compiled to HTML, PDF, or Word.\nExamples: * ggplot2 Introduction - CRAN PkgDown Source * tidyr Nested Data - CRAN PkgDown Source"
+  },
+  {
+    "objectID": "packages/package-slides.html#add-vignette",
+    "href": "packages/package-slides.html#add-vignette",
+    "title": "Packages Workshop",
+    "section": "Add Vignette",
+    "text": "Add Vignette\nusethis::use_vignette(\"hello\")\n✔ Setting active project to \"C:/Users/u0092104/OneDrive - University of\n  Utah/Projects/ForeSITE/ExampleRPkg\".\n✔ Adding knitr to Suggests field in DESCRIPTION.\n✔ Adding rmarkdown to Suggests field in DESCRIPTION.\n✔ Adding \"knitr\" to VignetteBuilder.\n✔ Adding \"inst/doc\" to .gitignore.\n✔ Creating vignettes/.\n✔ Adding \"*.html\" and \"*.R\" to vignettes/.gitignore.\n✔ Writing vignettes/hello.Rmd.\n☐ Modify vignettes/hello.Rmd."
+  },
+  {
+    "objectID": "packages/package-slides.html#vignette-file",
+    "href": "packages/package-slides.html#vignette-file",
+    "title": "Packages Workshop",
+    "section": "Vignette File",
+    "text": "Vignette File\nThe vignette file is created in the vignettes/ folder. The file is named hello.Rmd. It is structured like any other R Markdown file, with a couple of special features. The first section marked by --- is the YAML header. The YAML header contains metadata about the vignette. The second section is the body of the vignette."
+  },
+  {
+    "objectID": "packages/package-slides.html#vignette-yaml",
+    "href": "packages/package-slides.html#vignette-yaml",
+    "title": "Packages Workshop",
+    "section": "Vignette YAML",
+    "text": "Vignette YAML\ntitle: \"hello\"\noutput: rmarkdown::html_vignette\nvignette: &gt;\n  %\\VignetteIndexEntry{hello}\n  %\\VignetteEngine{knitr::rmarkdown}\n  %\\VignetteEncoding{UTF-8}"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome!",
+    "section": "",
+    "text": "R packages are a fundamental tool for reproducibility and code sharing. Scientists and data analysts can use R packages to share new methods and improve data processing pipelines. This workshop is designed to provide a practical introduction to developing R packages. The workshop will be structured in two parts: Practical foundations of writing and a hackathon. The practical foundations will provide a start-to-finish example that attendees can follow. The hackathon component will be oriented to developing attendees’ own R packages, expecting them to complete the workshop with their own package.\nForeSITE"
+  },
+  {
+    "objectID": "index.html#about-the-workshop",
+    "href": "index.html#about-the-workshop",
+    "title": "Welcome!",
+    "section": "About the workshop",
+    "text": "About the workshop\n\nTime and location\nThe workshop will take place on Friday, November 8th, 2024 at the University of Utah, Salt Lake City, UT. More details will be provided to registered attendees.\n\n\nWhat would be good uses for an R package?\n\nYou have a set of functions repeated across R scripts that you would like to register as a collection within an R package.\nYou have a Shiny App you would like to share with colleagues so they can run it locally (for example) on their laptops.\nYou have a function that runs a simulation/estimation/analysis that you plan or are already using repeatedly.\nYou have some data that you would like to share with others or yourself in a simpler way.\nEtc.\n\n\n\nWho should attend?\nR programming users looking to learn how to write an R package, hopefully already having an idea/project for their own package. What level of programming should attendees have? Attendees should have experience using the R programming language. To get the most out of the workshop, they should have a working knowledge of programming concepts such as writing functions data manipulation using tools like dplyr, base R, or data.table.\n\n\nWhat tools will be used during the workshop?\nBesides the R programming language, we will be using Rstudio."
+  },
+  {
+    "objectID": "index.html#registration",
+    "href": "index.html#registration",
+    "title": "Welcome!",
+    "section": "Registration",
+    "text": "Registration\nFor registration, please reach out to your ForeSITE contact. You can also email us at george.vegayon@utah.edu."
+  },
+  {
+    "objectID": "index.html#funding",
+    "href": "index.html#funding",
+    "title": "Welcome!",
+    "section": "Funding",
+    "text": "Funding\nThis workshop is organized by ForeSITE using funds from the CDC’s Center for Forecasting and Outbreak Analytics (CFA) (Award number 1U01CK000585; 75D30121F00003)."
+  },
+  {
     "objectID": "program.html",
     "href": "program.html",
     "title": "Program",
@@ -215,34 +614,6 @@
     "title": "Program",
     "section": "Part II: Hackathon (1.00 pm - 4.30 pm)",
     "text": "Part II: Hackathon (1.00 pm - 4.30 pm)\nThe hackathon will be oriented to developing attendees’ own R packages, expecting them to complete the workshop with their own package. The hackathon will be structured in the following way:\n\nDefining the ideal package (15 min).\nDefining the scope for the hackathon (15 min).\nImplementation of the package (checklist) (2.5 hours).\nNext steps (30 min)."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome!",
-    "section": "",
-    "text": "R packages are a fundamental tool for reproducibility and code sharing. Scientists and data analysts can use R packages to share new methods and improve data processing pipelines. This workshop is designed to provide a practical introduction to developing R packages. The workshop will be structured in two parts: Practical foundations of writing and a hackathon. The practical foundations will provide a start-to-finish example that attendees can follow. The hackathon component will be oriented to developing attendees’ own R packages, expecting them to complete the workshop with their own package.\nForeSITE"
-  },
-  {
-    "objectID": "index.html#about-the-workshop",
-    "href": "index.html#about-the-workshop",
-    "title": "Welcome!",
-    "section": "About the workshop",
-    "text": "About the workshop\n\nTime and location\nThe workshop will take place on Friday, November 8th, 2024 at the University of Utah, Salt Lake City, UT. More details will be provided to registered attendees.\n\n\nWhat would be good uses for an R package?\n\nYou have a set of functions repeated across R scripts that you would like to register as a collection within an R package.\nYou have a Shiny App you would like to share with colleagues so they can run it locally (for example) on their laptops.\nYou have a function that runs a simulation/estimation/analysis that you plan or are already using repeatedly.\nYou have some data that you would like to share with others or yourself in a simpler way.\nEtc.\n\n\n\nWho should attend?\nR programming users looking to learn how to write an R package, hopefully already having an idea/project for their own package. What level of programming should attendees have? Attendees should have experience using the R programming language. To get the most out of the workshop, they should have a working knowledge of programming concepts such as writing functions data manipulation using tools like dplyr, base R, or data.table.\n\n\nWhat tools will be used during the workshop?\nBesides the R programming language, we will be using Rstudio."
-  },
-  {
-    "objectID": "index.html#registration",
-    "href": "index.html#registration",
-    "title": "Welcome!",
-    "section": "Registration",
-    "text": "Registration\nFor registration, please reach out to your ForeSITE contact. You can also email us at george.vegayon@utah.edu."
-  },
-  {
-    "objectID": "index.html#funding",
-    "href": "index.html#funding",
-    "title": "Welcome!",
-    "section": "Funding",
-    "text": "Funding\nThis workshop is organized by ForeSITE using funds from the CDC’s Center for Forecasting and Outbreak Analytics (CFA) (Award number 1U01CK000585; 75D30121F00003)."
   },
   {
     "objectID": "git/hello-world.html",
