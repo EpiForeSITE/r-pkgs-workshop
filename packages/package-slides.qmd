@@ -11,6 +11,11 @@ format:
 
 # Overview
 
+## Goals
+
+* BASICS
+* Get going as quickly as possible.
+
 ## What is an `R` Package?
 
 ```
@@ -764,3 +769,129 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ```
+
+## Vignette Body
+
+The remainder of the Vignette is the body, which is standard R Markdown. The body can contain R code chunks, text, and images. The R code chunks are evaluated when the vignette is built.  Any additional packages that might be used in Vignettes need to be declared in the Suggests field in the DESCRIPTION file.
+
+
+`````````{r, echo=FALSE, eval=TRUE, results ="asis"}
+cat('
+``````markdown
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(ExampleRPkg)
+```
+
+```{r}
+hello()
+```
+``````')
+`````````
+
+# Compiled Code
+## Package Workflow
+
+- [X] ...
+- [X] Document Package
+- [X] Test Package
+- [X] Check Package
+- [X] Install Package
+- [X] Add Vignette
+- [ ] Add Compiled Code
+- [ ] ...
+
+## Compiled Code
+
+R can natively handly code from C, C++, and Fortran. This code is compiled into a shared library that is loaded into R. 
+Helper packages like make interfacing with C++ code easier.
+
+* [`Rcpp`](https://cran.r-project.org/package=Rcpp) - C++ code.
+* [`RcppArmadillo`](https://cran.r-project.org/package=RcppArmadillo) - C++ code with Armadillo.
+* [`RcppEigen`](https://cran.r-project.org/package=RcppEigen) - C++ code with Eigen.
+* [`Rcpp11`](https://cran.r-project.org/package=Rcpp11) - C++11 code.
+* [`cpp11`](https://cran.r-project.org/package=cpp11) - POSIT C++11 code.
+
+## Add Compiled Code
+
+```r
+usethis::use_rcpp('hello')
+```
+```
+✔ Adding Rcpp to LinkingTo field in DESCRIPTION.
+✔ Adding Rcpp to Imports field in DESCRIPTION.
+☐ Copy and paste the following lines into R/ExampleRPkg-package.R:
+  ## usethis namespace: start
+  #' @importFrom Rcpp sourceCpp
+  ## usethis namespace: end
+  NULL
+  [Copied to clipboard]
+✔ Creating src/.
+✔ Adding "*.o", "*.so", and "*.dll" to src/.gitignore.
+☐ Copy and paste the following lines into R/ExampleRPkg-package.R:
+  ## usethis namespace: start
+  #' @useDynLib ExampleRPkg, .registration = TRUE
+  ## usethis namespace: end
+  NULL
+  [Copied to clipboard]
+✔ Writing src/hello.cpp.
+☐ Modify src/hello.cpp.
+```
+
+## Package Documentation
+
+```r
+usethis::use_package_doc()
+```
+```
+✔ Writing R/ExampleRPkg-package.R.
+☐ Modify R/ExampleRPkg-package.R.
+☐ Run devtools::document() to update package-level documentation.
+```
+
+### `R/ExampleRPkg-package.R`
+```r
+#' @keywords internal
+"_PACKAGE"
+
+## usethis namespace: start
+#' @importFrom Rcpp sourceCpp
+#' @useDynLib ExampleRPkg, .registration = TRUE
+## usethis namespace: end
+```
+
+## `src/hello.cpp`
+
+```cpp
+#include <Rcpp.h>
+using namespace Rcpp;
+
+//' Returns a string, just as a basic check that the C++ plugin library is working.
+//' @return hello string
+//' @export
+// [[Rcpp::export]]
+String say_hello()
+{
+    return String("Hello, World!");
+}
+```
+
+## Check
+
+- [ ] Document: `devtools::document()`
+- [ ] Reload: `devtools::load_all()`
+- [ ] Check new code
+
+```r
+say_hello()
+```
+```
+[1] "Hello, World!"
+```
+

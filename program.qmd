@@ -22,6 +22,8 @@ The first component of the workshop will cover the following topics:
 
 The contents will be taught using a start-to-finish example that attendees can follow.
 
+[Slides](packages/package-slides.qmd)
+
 ## Lunch (12.00 pm - 1.00 pm)
 
 ## Part II: Hackathon (1.00 pm - 4.30 pm)
