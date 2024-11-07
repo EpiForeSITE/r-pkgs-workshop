@@ -895,3 +895,33 @@ say_hello()
 [1] "Hello, World!"
 ```
 
+## Inputs & STL
+
+Rcpp can handle a variety of inputs and outputs.
+
+* R Types: `NumericVector`, `IntegerVector`, `CharacterVector`, `LogicalVector`
+* STL Types: `std::vector`, `std::list`, `std::map`, `std::unordered_map`, `std::set`, `std::unordered_set`
+
+```cpp
+#include <Rcpp.h>
+using namespace Rcpp;
+
+#include <string>
+
+//' Returns a string, just as a basic check that the C++ plugin library is working.
+//' @return hello string
+//' @param who string to say hello to
+//' @export
+// [[Rcpp::export]]
+std::string say_hello(std::string who = "World")
+{
+    return "Hello, " + who + "!";
+}
+```
+- [ ] Reload
+```r
+say_hello("Class")
+```
+```
+[1] "Hello, Class!"
+```

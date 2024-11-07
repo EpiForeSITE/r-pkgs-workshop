@@ -2043,6 +2043,33 @@ devtools::install()</code></pre>
 </ul>
 <div class="sourceCode" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a></a><span class="fu">say_hello</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>[1] &quot;Hello, World!&quot;</code></pre>
+</section>
+<section id="inputs-stl" class="slide level2">
+<h2>Inputs &amp; STL</h2>
+<p>Rcpp can handle a variety of inputs and outputs.</p>
+<ul>
+<li>R Types: <code>NumericVector</code>, <code>IntegerVector</code>, <code>CharacterVector</code>, <code>LogicalVector</code></li>
+<li>STL Types: <code>std::vector</code>, <code>std::list</code>, <code>std::map</code>, <code>std::unordered_map</code>, <code>std::set</code>, <code>std::unordered_set</code></li>
+</ul>
+<div class="sourceCode" id="cb56"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb56-1"><a></a><span class="pp">#include </span><span class="im">&lt;Rcpp.h&gt;</span></span>
+<span id="cb56-2"><a></a><span class="kw">using</span> <span class="kw">namespace</span> Rcpp<span class="op">;</span></span>
+<span id="cb56-3"><a></a></span>
+<span id="cb56-4"><a></a><span class="pp">#include </span><span class="im">&lt;string&gt;</span></span>
+<span id="cb56-5"><a></a></span>
+<span id="cb56-6"><a></a><span class="co">//&#39; Returns a string, just as a basic check that the C++ plugin library is working.</span></span>
+<span id="cb56-7"><a></a><span class="co">//&#39; @return hello string</span></span>
+<span id="cb56-8"><a></a><span class="co">//&#39; @param who string to say hello to</span></span>
+<span id="cb56-9"><a></a><span class="co">//&#39; @export</span></span>
+<span id="cb56-10"><a></a><span class="co">// [[Rcpp::export]]</span></span>
+<span id="cb56-11"><a></a><span class="bu">std::</span>string say_hello<span class="op">(</span><span class="bu">std::</span>string who <span class="op">=</span> <span class="st">&quot;World&quot;</span><span class="op">)</span></span>
+<span id="cb56-12"><a></a><span class="op">{</span></span>
+<span id="cb56-13"><a></a>    <span class="cf">return</span> <span class="st">&quot;Hello, &quot;</span> <span class="op">+</span> who <span class="op">+</span> <span class="st">&quot;!&quot;</span><span class="op">;</span></span>
+<span id="cb56-14"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul class="task-list">
+<li><label><input type="checkbox">Reload</label></li>
+</ul>
+<div class="sourceCode" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a></a><span class="fu">say_hello</span>(<span class="st">&quot;Class&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>[1] &quot;Hello, Class!&quot;</code></pre>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">

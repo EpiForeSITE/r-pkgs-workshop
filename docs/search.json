@@ -719,5 +719,12 @@
     "title": "Packages Workshop",
     "section": "Check",
     "text": "Check\n\nDocument: devtools::document()\nReload: devtools::load_all()\nCheck new code\n\nsay_hello()\n[1] \"Hello, World!\""
+  },
+  {
+    "objectID": "packages/package-slides.html#inputs-stl",
+    "href": "packages/package-slides.html#inputs-stl",
+    "title": "Packages Workshop",
+    "section": "Inputs & STL",
+    "text": "Inputs & STL\nRcpp can handle a variety of inputs and outputs.\n\nR Types: NumericVector, IntegerVector, CharacterVector, LogicalVector\nSTL Types: std::vector, std::list, std::map, std::unordered_map, std::set, std::unordered_set\n\n#include &lt;Rcpp.h&gt;\nusing namespace Rcpp;\n\n#include &lt;string&gt;\n\n//' Returns a string, just as a basic check that the C++ plugin library is working.\n//' @return hello string\n//' @param who string to say hello to\n//' @export\n// [[Rcpp::export]]\nstd::string say_hello(std::string who = \"World\")\n{\n    return \"Hello, \" + who + \"!\";\n}\n\nReload\n\nsay_hello(\"Class\")\n[1] \"Hello, Class!\""
   }
 ]
