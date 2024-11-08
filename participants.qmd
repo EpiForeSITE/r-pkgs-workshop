@@ -1,0 +1,75 @@
+---
+title: Participants
+---
+
+Some of the participants of the workshop are listed below:
+
+```{r}
+#| cache: true
+#| echo: false
+#| message: false
+#| warning: false
+library(data.table)
+if (!file.exists("participants.rds")) {
+    x <- fread("registration.tsv")
+
+    x <- x[, .(name=`Full Name`, url=`URL of profile website`, linkedin=`Linkedin`, github=`GitHub username`, twitter=`Twitter username`, bio=`Short Bio`, affil=`Affiliation`, pronouns=`Preferred pronouns`)]
+
+    has_any <- x[, .(url, linkedin, github, twitter, bio)] |>
+        lapply(\(x) as.integer(x != "")) |>
+        do.call(what = "cbind") |>
+        rowSums()
+
+    x <- x[has_any > 0]
+
+    x <- x[order(name)]
+    saveRDS(x, "participants.rds")
+} else {
+    x <- readRDS("participants.rds")
+}
+```
+
+```{r}
+#| results: asis
+#| echo: false
+for (i in 1:nrow(x)) {
+
+    twitter <- if (x$twitter[i] != "") sprintf(
+        '[{{< fa brands twitter >}}](%s)',
+        paste0("https://twitter.com/", x$twitter[i])
+        ) else ""
+
+    github <- if (x$github[i] != "") sprintf(
+        '[{{< fa brands github >}}](%s)',
+        paste0("https://github.com/", x$github[i])
+        ) else ""
+
+    web <- if (x$url[i] != "") sprintf(
+        '[{{< fa solid globe >}}](%s)',
+        x$url[i]
+        ) else ""
+
+    affil <- if (x$affil[i] != "") sprintf(
+        "**%s**",
+        x$affil[i]
+        ) else ""
+
+    pronouns <- if (x$pronouns[i] != "") sprintf(
+        "(pronouns: %s)<br>",
+        x$pronouns[i]
+        ) else ""
+
+    linkedin <- if (x$linkedin[i] != "") sprintf(
+        '[{{< fa brands linkedin >}}](%s)',
+        x$linkedin[i]
+        ) else ""
+
+    sprintf(
+        "<details><summary>%s</summary>%s</details>\n",
+        paste(x$name[i], pronouns, affil, web, twitter, github, linkedin),
+        x$bio[i]
+        ) |>
+    cat()
+
+}
+```

@@ -182,6 +182,76 @@
     "text": "Example for .gitignore\nExample extracted directly from Pro-Git (link).\n# ignore all .a files\n*.a\n\n# but do track lib.a, even though you're ignoring .a files above\n!lib.a\n\n# only ignore the TODO file in the current directory, not subdir/TODO\n/TODO\n\n# ignore all files in any directory named build\nbuild/\n\n# ignore doc/notes.txt, but not doc/server/arch.txt\ndoc/*.txt\n\n# ignore all .pdf files in the doc/ directory and any of its subdirectories\ndoc/**/*.pdf"
   },
   {
+    "objectID": "participants.html",
+    "href": "participants.html",
+    "title": "Participants",
+    "section": "",
+    "text": "Some of the participants of the workshop are listed below:\n\n\nAndrew Pulsipher (pronouns: he/him) University of Utah  \n\n\n\n\nAndrew Redd University of Utah   \n\nStatistician, Assistant Professor, R Programmer.\n\n\n\nAníbal Olivera Morales (pronouns: He/Him) Universidad del Desarrollo \n\nPhysicist, Universidad de Concepción. PhD student, Complexity Social Sciences, Universidad del Desarrollo.\n\n\n\nBrian Bollen (pronouns: He/Him) University of Utah (VDL Lab)  \n\nSenior Software Engineer in the VDL Lab of the SCI Institute at the University of Utah. I focus mainly on web applications for complex data visualization.\n\n\n\nDamon Toth (pronouns: He, him, his) University of Utah  \n\nApplied mathematician and Research Associate Professor of Epidemiology at the University of Utah\n\n\n\nDan Ruley (pronouns: He/Him) DHHS Population Health Informatics Program\n\nI have a background in software development and analytics/database work. About a year ago I began working for the Informatics program doing analytics and data visualization. I work on maintaining our internal R Shiny platform and am currently overseeing our migration of this system to AWS.\n\n\n\nDaniel Opoku Agyemang (pronouns: He/Him/His) Salt Lake County  \n\nDaniel is passionate about turning data into actionable insights to drive change and improve population health outcomes. Proficient in R and other statistical programs for data manipulation and visualization for effective communication. He loves to spend time with his family kayaking and paddleboarding when not coding in R.\n\n\n\nDelaney Thornton (pronouns: she/her) University of Utah  \n\nDelaney is a research project manager at the U’s Division of Epidemiology supporting the CFA ForeSITE program.\n\n\n\nEmanuel Vasquez Gomez (pronouns: He/His/Him) Department of Health and Human Services\n\nI’m a Senior Health Informaticist at the Division of Population Health Informatics program and have the main responsibility of overseeing the R Shiny AVR platform. My team works primarily on R shiny application development and data automations.\n\n\n\nGeorge G Vega Yon (pronouns: He/Him/Él) University of Utah   \n\nI am an Assistant Professor of Research at the Division of Epidemiology at the University of Utah. I work on studying Complex Systems using Statistical Computing. I have over ten years of experience developing scientific software focusing on high-performance computing, data visualization, and social network analysis. My training is in Public Policy (M.A. UAI, 2011), Economics (M.Sc. Caltech, 2015), and Biostatistics (Ph.D. USC, 2020).\n\n\n\nJanelle Delgadillo (pronouns: she/they) Utah DHHS \n\n\n\n\nJoshua Kelley (pronouns: He/Him/His) UDHHS  \n\n\n\n\nKerry Regan (pronouns: She/Her) Utah Department of Health and Human Services \n\nI work as the wastewater surveillance epidemiologist at the Utah Department of Health and Human Services. I have been in this role for a little over a year and a half. Prior to that, I worked in the Informatics Program as a data analyst. I specialize in R and creating visualizations and dashboards.\n\n\n\nKerry Regan (pronouns: She/Her) Utah DHHS  \n\n\n\n\nMary Jewell (pronouns: she/her) Utah DHHS \n\nI am a genomic epidemiologist at Utah DHHS. I have degrees in biology and epidemiology and now I work to integrate genomic and epidemiologic data for enhanced disease surveillance.\n\n\n\nPeter EerNisse Utah DHHS   \n\nI am a managing-level scientist and project manager in Salt Lake City, Utah with 25 years of experience completing start-to-finish environmental and public health projects. I am passionate about data analysis and visualization to inform the public and decision makers, and promote science literacy to thwart disinformation. Currently, my focus is on web application development and I produce data-driven web applications for the Utah DHHS. When I am not doing this I dream of my next opportunity to be far out in some remote canyon enjoying a wilderness whitewater river trip.\n\n\n\nSia (pronouns: She/Her) Utah DHHS (DPH Surveillance Program) \n\nSia Gerard is the Syndromic Surveillance analyst for the Utah Department of Health and Human Services Division of population Health’s Surveillance team.\n\n\n\nYiran Qin (pronouns: He/him/his) Tooele County Health Department \n\n\n\n\nZach (pronouns: he) Weber-Morgan Health Department \n\nPublic Health Epidemiologist with experience in injury surveillance, environmental and occupational health, and communicable diseases.\n\n\n\n\nForeSITE"
+  },
+  {
+    "objectID": "program.html",
+    "href": "program.html",
+    "title": "Program",
+    "section": "",
+    "text": "The workshop will be structured in two parts: Practical foundations of writing and a hackathon. The practical foundations will provide a start-to-finish example that attendees can follow. The hackathon component will be oriented to developing attendees’ own R packages, expecting them to complete the workshop with their own package.\nForeSITE"
+  },
+  {
+    "objectID": "program.html#registration-and-breakfast",
+    "href": "program.html#registration-and-breakfast",
+    "title": "Program",
+    "section": "Registration and breakfast",
+    "text": "Registration and breakfast\nRegistration will start at 8.30 am. Breakfast will be provided."
+  },
+  {
+    "objectID": "program.html#part-i-practical-foundations-9.00-am---12.00-pm",
+    "href": "program.html#part-i-practical-foundations-9.00-am---12.00-pm",
+    "title": "Program",
+    "section": "Part I: Practical Foundations (9.00 am - 12.00 pm)",
+    "text": "Part I: Practical Foundations (9.00 am - 12.00 pm)\nThe first component of the workshop will cover the following topics:\n\nFundamentals about R packages: Structure, DESCRIPTION file, NAMESPACE, etc.\nDocumentaion using roxygen2.\nTesting using testthat/tinytest.\nContinuous integration using GitHub Actions.\nExtended documentation: Vignettes.\n\nThe contents will be taught using a start-to-finish example that attendees can follow."
+  },
+  {
+    "objectID": "program.html#lunch-12.00-pm---1.00-pm",
+    "href": "program.html#lunch-12.00-pm---1.00-pm",
+    "title": "Program",
+    "section": "Lunch (12.00 pm - 1.00 pm)",
+    "text": "Lunch (12.00 pm - 1.00 pm)"
+  },
+  {
+    "objectID": "program.html#part-ii-hackathon-1.00-pm---4.30-pm",
+    "href": "program.html#part-ii-hackathon-1.00-pm---4.30-pm",
+    "title": "Program",
+    "section": "Part II: Hackathon (1.00 pm - 4.30 pm)",
+    "text": "Part II: Hackathon (1.00 pm - 4.30 pm)\nThe hackathon will be oriented to developing attendees’ own R packages, expecting them to complete the workshop with their own package. The hackathon will be structured in the following way:\n\nDefining the ideal package (15 min).\nDefining the scope for the hackathon (15 min).\nImplementation of the package (checklist) (2.5 hours).\nNext steps (30 min)."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome!",
+    "section": "",
+    "text": "R packages are a fundamental tool for reproducibility and code sharing. Scientists and data analysts can use R packages to share new methods and improve data processing pipelines. This workshop is designed to provide a practical introduction to developing R packages. The workshop will be structured in two parts: Practical foundations of writing and a hackathon. The practical foundations will provide a start-to-finish example that attendees can follow. The hackathon component will be oriented to developing attendees’ own R packages, expecting them to complete the workshop with their own package.\nForeSITE"
+  },
+  {
+    "objectID": "index.html#about-the-workshop",
+    "href": "index.html#about-the-workshop",
+    "title": "Welcome!",
+    "section": "About the workshop",
+    "text": "About the workshop\n\nTime and location\nThe workshop will take place on Friday, November 8th, 2024 at the University of Utah, Salt Lake City, UT. More details will be provided to registered attendees.\n\n\nWhat would be good uses for an R package?\n\nYou have a set of functions repeated across R scripts that you would like to register as a collection within an R package.\nYou have a Shiny App you would like to share with colleagues so they can run it locally (for example) on their laptops.\nYou have a function that runs a simulation/estimation/analysis that you plan or are already using repeatedly.\nYou have some data that you would like to share with others or yourself in a simpler way.\nEtc.\n\n\n\nWho should attend?\nR programming users looking to learn how to write an R package, hopefully already having an idea/project for their own package. What level of programming should attendees have? Attendees should have experience using the R programming language. To get the most out of the workshop, they should have a working knowledge of programming concepts such as writing functions data manipulation using tools like dplyr, base R, or data.table.\n\n\nWhat tools will be used during the workshop?\nBesides the R programming language, we will be using Rstudio."
+  },
+  {
+    "objectID": "index.html#registration",
+    "href": "index.html#registration",
+    "title": "Welcome!",
+    "section": "Registration",
+    "text": "Registration\nFor registration, please reach out to your ForeSITE contact. You can also email us at george.vegayon@utah.edu."
+  },
+  {
+    "objectID": "index.html#funding",
+    "href": "index.html#funding",
+    "title": "Welcome!",
+    "section": "Funding",
+    "text": "Funding\nThis workshop is organized by ForeSITE using funds from the CDC’s Center for Forecasting and Outbreak Analytics (CFA) (Award number 1U01CK000585; 75D30121F00003)."
+  },
+  {
     "objectID": "packages/package-slides.html#what-is-an-r-package",
     "href": "packages/package-slides.html#what-is-an-r-package",
     "title": "Packages Workshop",
@@ -551,69 +621,6 @@
     "title": "Packages Workshop",
     "section": "Vignette YAML",
     "text": "Vignette YAML\ntitle: \"hello\"\noutput: rmarkdown::html_vignette\nvignette: &gt;\n  %\\VignetteIndexEntry{hello}\n  %\\VignetteEngine{knitr::rmarkdown}\n  %\\VignetteEncoding{UTF-8}"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome!",
-    "section": "",
-    "text": "R packages are a fundamental tool for reproducibility and code sharing. Scientists and data analysts can use R packages to share new methods and improve data processing pipelines. This workshop is designed to provide a practical introduction to developing R packages. The workshop will be structured in two parts: Practical foundations of writing and a hackathon. The practical foundations will provide a start-to-finish example that attendees can follow. The hackathon component will be oriented to developing attendees’ own R packages, expecting them to complete the workshop with their own package.\nForeSITE"
-  },
-  {
-    "objectID": "index.html#about-the-workshop",
-    "href": "index.html#about-the-workshop",
-    "title": "Welcome!",
-    "section": "About the workshop",
-    "text": "About the workshop\n\nTime and location\nThe workshop will take place on Friday, November 8th, 2024 at the University of Utah, Salt Lake City, UT. More details will be provided to registered attendees.\n\n\nWhat would be good uses for an R package?\n\nYou have a set of functions repeated across R scripts that you would like to register as a collection within an R package.\nYou have a Shiny App you would like to share with colleagues so they can run it locally (for example) on their laptops.\nYou have a function that runs a simulation/estimation/analysis that you plan or are already using repeatedly.\nYou have some data that you would like to share with others or yourself in a simpler way.\nEtc.\n\n\n\nWho should attend?\nR programming users looking to learn how to write an R package, hopefully already having an idea/project for their own package. What level of programming should attendees have? Attendees should have experience using the R programming language. To get the most out of the workshop, they should have a working knowledge of programming concepts such as writing functions data manipulation using tools like dplyr, base R, or data.table.\n\n\nWhat tools will be used during the workshop?\nBesides the R programming language, we will be using Rstudio."
-  },
-  {
-    "objectID": "index.html#registration",
-    "href": "index.html#registration",
-    "title": "Welcome!",
-    "section": "Registration",
-    "text": "Registration\nFor registration, please reach out to your ForeSITE contact. You can also email us at george.vegayon@utah.edu."
-  },
-  {
-    "objectID": "index.html#funding",
-    "href": "index.html#funding",
-    "title": "Welcome!",
-    "section": "Funding",
-    "text": "Funding\nThis workshop is organized by ForeSITE using funds from the CDC’s Center for Forecasting and Outbreak Analytics (CFA) (Award number 1U01CK000585; 75D30121F00003)."
-  },
-  {
-    "objectID": "program.html",
-    "href": "program.html",
-    "title": "Program",
-    "section": "",
-    "text": "The workshop will be structured in two parts: Practical foundations of writing and a hackathon. The practical foundations will provide a start-to-finish example that attendees can follow. The hackathon component will be oriented to developing attendees’ own R packages, expecting them to complete the workshop with their own package.\nForeSITE"
-  },
-  {
-    "objectID": "program.html#registration-and-breakfast",
-    "href": "program.html#registration-and-breakfast",
-    "title": "Program",
-    "section": "Registration and breakfast",
-    "text": "Registration and breakfast\nRegistration will start at 8.30 am. Breakfast will be provided."
-  },
-  {
-    "objectID": "program.html#part-i-practical-foundations-9.00-am---12.00-pm",
-    "href": "program.html#part-i-practical-foundations-9.00-am---12.00-pm",
-    "title": "Program",
-    "section": "Part I: Practical Foundations (9.00 am - 12.00 pm)",
-    "text": "Part I: Practical Foundations (9.00 am - 12.00 pm)\nThe first component of the workshop will cover the following topics:\n\nFundamentals about R packages: Structure, DESCRIPTION file, NAMESPACE, etc.\nDocumentaion using roxygen2.\nTesting using testthat/tinytest.\nContinuous integration using GitHub Actions.\nExtended documentation: Vignettes.\n\nThe contents will be taught using a start-to-finish example that attendees can follow."
-  },
-  {
-    "objectID": "program.html#lunch-12.00-pm---1.00-pm",
-    "href": "program.html#lunch-12.00-pm---1.00-pm",
-    "title": "Program",
-    "section": "Lunch (12.00 pm - 1.00 pm)",
-    "text": "Lunch (12.00 pm - 1.00 pm)"
-  },
-  {
-    "objectID": "program.html#part-ii-hackathon-1.00-pm---4.30-pm",
-    "href": "program.html#part-ii-hackathon-1.00-pm---4.30-pm",
-    "title": "Program",
-    "section": "Part II: Hackathon (1.00 pm - 4.30 pm)",
-    "text": "Part II: Hackathon (1.00 pm - 4.30 pm)\nThe hackathon will be oriented to developing attendees’ own R packages, expecting them to complete the workshop with their own package. The hackathon will be structured in the following way:\n\nDefining the ideal package (15 min).\nDefining the scope for the hackathon (15 min).\nImplementation of the package (checklist) (2.5 hours).\nNext steps (30 min)."
   },
   {
     "objectID": "git/hello-world.html",

@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Truly Yours">
-<meta name="dcterms.date" content="2024-11-06">
 
-<title>Hello World – Writing R Packages for the Public Good: A workshop</title>
+<title>Participants – Writing R Packages for the Public Good: A workshop</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,59 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -104,7 +70,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -114,10 +80,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../logo.png" alt="" class="navbar-logo">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./logo.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Writing R Packages for the Public Good: A workshop</span>
     </a>
   </div>
@@ -128,15 +94,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../program.html"> 
+    <a class="nav-link" href="./program.html"> 
 <span class="menu-text">Program</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../participants.html"> 
+    <a class="nav-link active" href="./participants.html" aria-current="page"> 
 <span class="menu-text">Participants</span></a>
   </li>  
 </ul>
@@ -147,11 +113,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-git">    
         <li>
-    <a class="dropdown-item" href="../git/slides.html">
+    <a class="dropdown-item" href="./git/slides.html">
  <span class="dropdown-text">Intro to Git slides</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../git/lab.html">
+    <a class="dropdown-item" href="./git/lab.html">
  <span class="dropdown-text">Intro to Git lab</span></a>
   </li>  
     </ul>
@@ -167,43 +133,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#first-level-header" id="toc-first-level-header" class="nav-link active" data-scroll-target="#first-level-header">First level header</a>
-  <ul class="collapse">
-  <li><a href="#second-level-header" id="toc-second-level-header" class="nav-link" data-scroll-target="#second-level-header">Second level header</a></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/EpiForeSITE/r-pkgs-workshop/edit/main/git/hello-world.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EpiForeSITE/r-pkgs-workshop/blob/main/git/hello-world.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Hello World</h1>
+<h1 class="title">Participants</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Truly Yours </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">November 6, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -213,32 +158,118 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="first-level-header" class="level1">
-<h1>First level header</h1>
-<section id="second-level-header" class="level2">
-<h2 class="anchored" data-anchor-id="second-level-header">Second level header</h2>
-<p>Some text that goes along with the document</p>
-<p>Code chunks can have tags, like the one here</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(pi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.772454</code></pre>
-</div>
-</div>
-<p>And also, they can have options. For example, if you don’t want the source code to be printed out, you add the option <code>echo: false</code> as in the following code chunk</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="hello-world_files/figure-html/second-code-chunk-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<p>Some of the participants of the workshop are listed below:</p>
+<details>
+<summary>
+Andrew Pulsipher (pronouns: he/him)<br> <strong>University of Utah</strong> <a href="https://github.com/apulsipher"><i class="fa-brands fa-github" aria-label="github"></i></a> <a href="https://www.linkedin.com/in/a-pulsipher/"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a>
+</summary>
+</details>
+<details>
+<summary>
+Andrew Redd <strong>University of Utah</strong> <a href="https://twitter.com/statredd"><i class="fa-brands fa-twitter" aria-label="twitter"></i></a> <a href="https://github.com/halpo"><i class="fa-brands fa-github" aria-label="github"></i></a> <a href="andrew-redd-202b5736"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a>
+</summary>
+Statistician, Assistant Professor, R Programmer.
+</details>
+<details>
+<summary>
+Aníbal Olivera Morales (pronouns: He/Him)<br> <strong>Universidad del Desarrollo</strong> <a href="https://github.com/aoliveram"><i class="fa-brands fa-github" aria-label="github"></i></a>
+</summary>
+Physicist, Universidad de Concepción. PhD student, Complexity Social Sciences, Universidad del Desarrollo.
+</details>
+<details>
+<summary>
+Brian Bollen (pronouns: He/Him)<br> <strong>University of Utah (VDL Lab)</strong> <a href="https://github.com/bbollen23"><i class="fa-brands fa-github" aria-label="github"></i></a> <a href="https://www.linkedin.com/in/brian-bollen-ph-d-a3123484/"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a>
+</summary>
+Senior Software Engineer in the VDL Lab of the SCI Institute at the University of Utah. I focus mainly on web applications for complex data visualization.
+</details>
+<details>
+<summary>
+Damon Toth (pronouns: He, him, his)<br> <strong>University of Utah</strong> <a href="https://twitter.com/damon_toth"><i class="fa-brands fa-twitter" aria-label="twitter"></i></a> <a href="https://github.com/damontoth"><i class="fa-brands fa-github" aria-label="github"></i></a>
+</summary>
+Applied mathematician and Research Associate Professor of Epidemiology at the University of Utah
+</details>
+<details>
+<summary>
+Dan Ruley (pronouns: He/Him)<br> <strong>DHHS Population Health Informatics Program</strong>
+</summary>
+I have a background in software development and analytics/database work. About a year ago I began working for the Informatics program doing analytics and data visualization. I work on maintaining our internal R Shiny platform and am currently overseeing our migration of this system to AWS.
+</details>
+<details>
+<summary>
+Daniel Opoku Agyemang (pronouns: He/Him/His)<br> <strong>Salt Lake County</strong> <a href="https://github.com/dopokuagyemang"><i class="fa-brands fa-github" aria-label="github"></i></a> <a href="https://www.linkedin.com/in/daniel-opoku-agyemang-phd-mph-gcstats-3a9a7422/"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a>
+</summary>
+Daniel is passionate about turning data into actionable insights to drive change and improve population health outcomes. Proficient in R and other statistical programs for data manipulation and visualization for effective communication. He loves to spend time with his family kayaking and paddleboarding when not coding in R.
+</details>
+<details>
+<summary>
+Delaney Thornton (pronouns: she/her)<br> <strong>University of Utah</strong> <a href="https://github.com/EDelaneyT"><i class="fa-brands fa-github" aria-label="github"></i></a> <a href="https://www.linkedin.com/in/eryn-delaney-thornton-mph-803891110/"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a>
+</summary>
+Delaney is a research project manager at the U’s Division of Epidemiology supporting the CFA ForeSITE program.
+</details>
+<details>
+<summary>
+Emanuel Vasquez Gomez (pronouns: He/His/Him)<br> <strong>Department of Health and Human Services</strong>
+</summary>
+I’m a Senior Health Informaticist at the Division of Population Health Informatics program and have the main responsibility of overseeing the R Shiny AVR platform. My team works primarily on R shiny application development and data automations.
+</details>
+<details>
+<summary>
+George G Vega Yon (pronouns: He/Him/Él)<br> <strong>University of Utah</strong> <a href="https://ggvy.cl"><i class="fa-solid fa-globe" aria-label="globe"></i></a> <a href="https://twitter.com/gvegayon"><i class="fa-brands fa-twitter" aria-label="twitter"></i></a> <a href="https://github.com/gvegayon"><i class="fa-brands fa-github" aria-label="github"></i></a>
+</summary>
+I am an Assistant Professor of Research at the Division of Epidemiology at the University of Utah. I work on studying Complex Systems using Statistical Computing. I have over ten years of experience developing scientific software focusing on high-performance computing, data visualization, and social network analysis. My training is in Public Policy (M.A.&nbsp;UAI, 2011), Economics (M.Sc. Caltech, 2015), and Biostatistics (Ph.D.&nbsp;USC, 2020).
+</details>
+<details>
+<summary>
+Janelle Delgadillo (pronouns: she/they)<br> <strong>Utah DHHS</strong> <a href="https://www.linkedin.com/in/janelle-delgadillo/"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a>
+</summary>
+</details>
+<details>
+<summary>
+Joshua Kelley (pronouns: He/Him/His)<br> <strong>UDHHS</strong> <a href="https://github.com/joshkell"><i class="fa-brands fa-github" aria-label="github"></i></a> <a href="https://www.linkedin.com/in/joshua-kelley-108"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a>
+</summary>
+</details>
+<details>
+<summary>
+Kerry Regan (pronouns: She/Her)<br> <strong>Utah Department of Health and Human Services</strong> <a href="https://github.com/kerrylregan"><i class="fa-brands fa-github" aria-label="github"></i></a>
+</summary>
+I work as the wastewater surveillance epidemiologist at the Utah Department of Health and Human Services. I have been in this role for a little over a year and a half. Prior to that, I worked in the Informatics Program as a data analyst. I specialize in R and creating visualizations and dashboards.
+</details>
+<details>
+<summary>
+Kerry Regan (pronouns: She/Her)<br> <strong>Utah DHHS</strong> <a href="https://avrpublic.dhhs.utah.gov/uwss/"><i class="fa-solid fa-globe" aria-label="globe"></i></a> <a href="https://github.com/kerryregan"><i class="fa-brands fa-github" aria-label="github"></i></a>
+</summary>
+</details>
+<details>
+<summary>
+Mary Jewell (pronouns: she/her)<br> <strong>Utah DHHS</strong> <a href="https://www.linkedin.com/in/mary-jewell/"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a>
+</summary>
+I am a genomic epidemiologist at Utah DHHS. I have degrees in biology and epidemiology and now I work to integrate genomic and epidemiologic data for enhanced disease surveillance.
+</details>
+<details>
+<summary>
+Peter EerNisse <strong>Utah DHHS</strong> <a href="https://peernisse.github.io/portfolio/index.html"><i class="fa-solid fa-globe" aria-label="globe"></i></a> <a href="https://github.com/peernisse"><i class="fa-brands fa-github" aria-label="github"></i></a> <a href="www.linkedin.com/in/peter-eernisse-3a50169"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a>
+</summary>
+I am a managing-level scientist and project manager in Salt Lake City, Utah with 25 years of experience completing start-to-finish environmental and public health projects. I am passionate about data analysis and visualization to inform the public and decision makers, and promote science literacy to thwart disinformation. Currently, my focus is on web application development and I produce data-driven web applications for the Utah DHHS. When I am not doing this I dream of my next opportunity to be far out in some remote canyon enjoying a wilderness whitewater river trip.
+</details>
+<details>
+<summary>
+Sia (pronouns: She/Her)<br> <strong>Utah DHHS (DPH Surveillance Program)</strong> <a href="https://www.linkedin.com/in/sia-gerard-mph-06b7828a/"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a>
+</summary>
+Sia Gerard is the Syndromic Surveillance analyst for the Utah Department of Health and Human Services Division of population Health’s Surveillance team.
+</details>
+<details>
+<summary>
+Yiran Qin (pronouns: He/him/his)<br> <strong>Tooele County Health Department</strong> <a href="linkedin.com/in/yiran-qin"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a>
+</summary>
+</details>
+<details>
+<summary>
+Zach (pronouns: he)<br> <strong>Weber-Morgan Health Department</strong> <a href="https://www.linkedin.com/in/zachary-heuscher-54684529/"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a>
+</summary>
+Public Health Epidemiologist with experience in injury surveillance, environmental and occupational health, and communicable diseases.
+</details>
 
 
-</section>
-</section>
 
 <p><text style="text-align:center">ForeSITE</text></p></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -666,4 +697,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/EpiForeSITE/r-pkgs-workshop/edit/main/git/hello-world.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EpiForeSITE/r-pkgs-workshop/blob/main/git/hello-world.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/EpiForeSITE/r-pkgs-workshop/edit/main/participants.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/EpiForeSITE/r-pkgs-workshop/blob/main/participants.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
