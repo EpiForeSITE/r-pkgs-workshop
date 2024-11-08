@@ -1,3 +1,8 @@
 /.quarto/
 .Rproj.user
+<<<<<<< HEAD
 registration.tsv
+=======
+*.Rproj
+_freeze
+>>>>>>> 95dad49619999546025354b529a8b7be77154def

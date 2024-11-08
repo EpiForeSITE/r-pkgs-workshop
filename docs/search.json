@@ -207,7 +207,7 @@
     "href": "program.html#part-i-practical-foundations-9.00-am---12.00-pm",
     "title": "Program",
     "section": "Part I: Practical Foundations (9.00 am - 12.00 pm)",
-    "text": "Part I: Practical Foundations (9.00 am - 12.00 pm)\nThe first component of the workshop will cover the following topics:\n\nFundamentals about R packages: Structure, DESCRIPTION file, NAMESPACE, etc.\nDocumentaion using roxygen2.\nTesting using testthat/tinytest.\nContinuous integration using GitHub Actions.\nExtended documentation: Vignettes.\n\nThe contents will be taught using a start-to-finish example that attendees can follow."
+    "text": "Part I: Practical Foundations (9.00 am - 12.00 pm)\nThe first component of the workshop will cover the following topics:\n\nFundamentals about R packages: Structure, DESCRIPTION file, NAMESPACE, etc.\nDocumentaion using roxygen2.\nTesting using testthat/tinytest.\nContinuous integration using GitHub Actions.\nExtended documentation: Vignettes.\n\nThe contents will be taught using a start-to-finish example that attendees can follow. Slides can be accessed here (source).\nAn example R package with a Shiny app that will be reviewed during the workshop can be accessed at https://github.com/EpiForeSITE/shiny-demo-pkg"
   },
   {
     "objectID": "program.html#lunch-12.00-pm---1.00-pm",
@@ -250,6 +250,13 @@
     "title": "Welcome!",
     "section": "Funding",
     "text": "Funding\nThis workshop is organized by ForeSITE using funds from the CDC’s Center for Forecasting and Outbreak Analytics (CFA) (Award number 1U01CK000585; 75D30121F00003)."
+  },
+  {
+    "objectID": "packages/package-slides.html#goals",
+    "href": "packages/package-slides.html#goals",
+    "title": "Packages Workshop",
+    "section": "Goals",
+    "text": "Goals\n\nBASICS\nGet going as quickly as possible."
   },
   {
     "objectID": "packages/package-slides.html#what-is-an-r-package",
@@ -621,6 +628,62 @@
     "title": "Packages Workshop",
     "section": "Vignette YAML",
     "text": "Vignette YAML\ntitle: \"hello\"\noutput: rmarkdown::html_vignette\nvignette: &gt;\n  %\\VignetteIndexEntry{hello}\n  %\\VignetteEngine{knitr::rmarkdown}\n  %\\VignetteEncoding{UTF-8}"
+  },
+  {
+    "objectID": "packages/package-slides.html#vignette-body",
+    "href": "packages/package-slides.html#vignette-body",
+    "title": "Packages Workshop",
+    "section": "Vignette Body",
+    "text": "Vignette Body\nThe remainder of the Vignette is the body, which is standard R Markdown. The body can contain R code chunks, text, and images. The R code chunks are evaluated when the vignette is built. Any additional packages that might be used in Vignettes need to be declared in the Suggests field in the DESCRIPTION file.\n```{r, include = FALSE}\nknitr::opts_chunk$set(\n  collapse = TRUE,\n  comment = \"#&gt;\"\n)\n```\n\n```{r setup}\nlibrary(ExampleRPkg)\n```\n\n```{r}\nhello()\n```"
+  },
+  {
+    "objectID": "packages/package-slides.html#package-workflow-6",
+    "href": "packages/package-slides.html#package-workflow-6",
+    "title": "Packages Workshop",
+    "section": "Package Workflow",
+    "text": "Package Workflow\n\n…\nDocument Package\nTest Package\nCheck Package\nInstall Package\nAdd Vignette\nAdd Compiled Code\n…"
+  },
+  {
+    "objectID": "packages/package-slides.html#compiled-code-1",
+    "href": "packages/package-slides.html#compiled-code-1",
+    "title": "Packages Workshop",
+    "section": "Compiled Code",
+    "text": "Compiled Code\nR can natively handly code from C, C++, and Fortran. This code is compiled into a shared library that is loaded into R. Helper packages like make interfacing with C++ code easier.\n\nRcpp - C++ code.\nRcppArmadillo - C++ code with Armadillo.\nRcppEigen - C++ code with Eigen.\nRcpp11 - C++11 code.\ncpp11 - POSIT C++11 code."
+  },
+  {
+    "objectID": "packages/package-slides.html#add-compiled-code",
+    "href": "packages/package-slides.html#add-compiled-code",
+    "title": "Packages Workshop",
+    "section": "Add Compiled Code",
+    "text": "Add Compiled Code\nusethis::use_rcpp('hello')\n✔ Adding Rcpp to LinkingTo field in DESCRIPTION.\n✔ Adding Rcpp to Imports field in DESCRIPTION.\n☐ Copy and paste the following lines into R/ExampleRPkg-package.R:\n  ## usethis namespace: start\n  #' @importFrom Rcpp sourceCpp\n  ## usethis namespace: end\n  NULL\n  [Copied to clipboard]\n✔ Creating src/.\n✔ Adding \"*.o\", \"*.so\", and \"*.dll\" to src/.gitignore.\n☐ Copy and paste the following lines into R/ExampleRPkg-package.R:\n  ## usethis namespace: start\n  #' @useDynLib ExampleRPkg, .registration = TRUE\n  ## usethis namespace: end\n  NULL\n  [Copied to clipboard]\n✔ Writing src/hello.cpp.\n☐ Modify src/hello.cpp."
+  },
+  {
+    "objectID": "packages/package-slides.html#package-documentation",
+    "href": "packages/package-slides.html#package-documentation",
+    "title": "Packages Workshop",
+    "section": "Package Documentation",
+    "text": "Package Documentation\nusethis::use_package_doc()\n✔ Writing R/ExampleRPkg-package.R.\n☐ Modify R/ExampleRPkg-package.R.\n☐ Run devtools::document() to update package-level documentation.\nR/ExampleRPkg-package.R\n#' @keywords internal\n\"_PACKAGE\"\n\n## usethis namespace: start\n#' @importFrom Rcpp sourceCpp\n#' @useDynLib ExampleRPkg, .registration = TRUE\n## usethis namespace: end"
+  },
+  {
+    "objectID": "packages/package-slides.html#srchello.cpp",
+    "href": "packages/package-slides.html#srchello.cpp",
+    "title": "Packages Workshop",
+    "section": "src/hello.cpp",
+    "text": "src/hello.cpp\n#include &lt;Rcpp.h&gt;\nusing namespace Rcpp;\n\n//' Returns a string, just as a basic check that the C++ plugin library is working.\n//' @return hello string\n//' @export\n// [[Rcpp::export]]\nString say_hello()\n{\n    return String(\"Hello, World!\");\n}"
+  },
+  {
+    "objectID": "packages/package-slides.html#check",
+    "href": "packages/package-slides.html#check",
+    "title": "Packages Workshop",
+    "section": "Check",
+    "text": "Check\n\nDocument: devtools::document()\nReload: devtools::load_all()\nCheck new code\n\nsay_hello()\n[1] \"Hello, World!\""
+  },
+  {
+    "objectID": "packages/package-slides.html#inputs-stl",
+    "href": "packages/package-slides.html#inputs-stl",
+    "title": "Packages Workshop",
+    "section": "Inputs & STL",
+    "text": "Inputs & STL\nRcpp can handle a variety of inputs and outputs.\n\nR Types: NumericVector, IntegerVector, CharacterVector, LogicalVector\nSTL Types: std::vector, std::list, std::map, std::unordered_map, std::set, std::unordered_set\n\n#include &lt;Rcpp.h&gt;\nusing namespace Rcpp;\n\n#include &lt;string&gt;\n\n//' Returns a string, just as a basic check that the C++ plugin library is working.\n//' @return hello string\n//' @param who string to say hello to\n//' @export\n// [[Rcpp::export]]\nstd::string say_hello(std::string who = \"World\")\n{\n    return \"Hello, \" + who + \"!\";\n}\n\nReload\n\nsay_hello(\"Class\")\n[1] \"Hello, Class!\""
   },
   {
     "objectID": "git/hello-world.html",

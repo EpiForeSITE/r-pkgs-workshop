@@ -20,7 +20,9 @@ The first component of the workshop will cover the following topics:
 - Continuous integration using GitHub Actions.
 - Extended documentation: Vignettes.
 
-The contents will be taught using a start-to-finish example that attendees can follow.
+The contents will be taught using a start-to-finish example that attendees can follow. Slides can be accessed [here](packages/package-slides.html) ([source](packages/package-slides.qmd)). 
+
+An example R package with a Shiny app that will be reviewed during the workshop can be accessed at <https://github.com/EpiForeSITE/shiny-demo-pkg>
 
 ## Lunch (12.00 pm - 1.00 pm)
 

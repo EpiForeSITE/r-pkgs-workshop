@@ -1225,6 +1225,13 @@ Andrew Redd
 <h1>Overview</h1>
 
 </section>
+<section id="goals" class="slide level2">
+<h2>Goals</h2>
+<ul>
+<li>BASICS</li>
+<li>Get going as quickly as possible.</li>
+</ul>
+</section>
 <section id="what-is-an-r-package" class="slide level2">
 <h2>What is an <code>R</code> Package?</h2>
 <pre><code>Code (Functions) + Documentation (Help &amp; Vignettes) + Data (Datasets) + ... = Package</code></pre>
@@ -1928,6 +1935,141 @@ devtools::install()</code></pre>
 <span id="cb46-4"><a></a>  %\VignetteIndexEntry{hello}</span>
 <span id="cb46-5"><a></a>  %\VignetteEngine{knitr::rmarkdown}</span>
 <span id="cb46-6"><a></a>  %\VignetteEncoding{UTF-8}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="vignette-body" class="slide level2">
+<h2>Vignette Body</h2>
+<p>The remainder of the Vignette is the body, which is standard R Markdown. The body can contain R code chunks, text, and images. The R code chunks are evaluated when the vignette is built. Any additional packages that might be used in Vignettes need to be declared in the Suggests field in the DESCRIPTION file.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb47-1"><a></a><span class="in">```{r, include = FALSE}</span></span>
+<span id="cb47-2"><a></a><span class="in">knitr::opts_chunk$set(</span></span>
+<span id="cb47-3"><a></a><span class="in">  collapse = TRUE,</span></span>
+<span id="cb47-4"><a></a><span class="in">  comment = &quot;#&gt;&quot;</span></span>
+<span id="cb47-5"><a></a><span class="in">)</span></span>
+<span id="cb47-6"><a></a><span class="in">```</span></span>
+<span id="cb47-7"><a></a></span>
+<span id="cb47-8"><a></a><span class="in">```{r setup}</span></span>
+<span id="cb47-9"><a></a><span class="in">library(ExampleRPkg)</span></span>
+<span id="cb47-10"><a></a><span class="in">```</span></span>
+<span id="cb47-11"><a></a></span>
+<span id="cb47-12"><a></a><span class="in">```{r}</span></span>
+<span id="cb47-13"><a></a><span class="in">hello()</span></span>
+<span id="cb47-14"><a></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section></section>
+<section>
+<section id="compiled-code" class="title-slide slide level1 center">
+<h1>Compiled Code</h1>
+
+</section>
+<section id="package-workflow-6" class="slide level2">
+<h2>Package Workflow</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" checked>…</label></li>
+<li><label><input type="checkbox" checked>Document Package</label></li>
+<li><label><input type="checkbox" checked>Test Package</label></li>
+<li><label><input type="checkbox" checked>Check Package</label></li>
+<li><label><input type="checkbox" checked>Install Package</label></li>
+<li><label><input type="checkbox" checked>Add Vignette</label></li>
+<li><label><input type="checkbox">Add Compiled Code</label></li>
+<li><label><input type="checkbox">…</label></li>
+</ul>
+</section>
+<section id="compiled-code-1" class="slide level2">
+<h2>Compiled Code</h2>
+<p>R can natively handly code from C, C++, and Fortran. This code is compiled into a shared library that is loaded into R. Helper packages like make interfacing with C++ code easier.</p>
+<ul>
+<li><a href="https://cran.r-project.org/package=Rcpp"><code>Rcpp</code></a> - C++ code.</li>
+<li><a href="https://cran.r-project.org/package=RcppArmadillo"><code>RcppArmadillo</code></a> - C++ code with Armadillo.</li>
+<li><a href="https://cran.r-project.org/package=RcppEigen"><code>RcppEigen</code></a> - C++ code with Eigen.</li>
+<li><a href="https://cran.r-project.org/package=Rcpp11"><code>Rcpp11</code></a> - C++11 code.</li>
+<li><a href="https://cran.r-project.org/package=cpp11"><code>cpp11</code></a> - POSIT C++11 code.</li>
+</ul>
+</section>
+<section id="add-compiled-code" class="slide level2">
+<h2>Add Compiled Code</h2>
+<div class="sourceCode" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_rcpp</span>(<span class="st">&#39;hello&#39;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>✔ Adding Rcpp to LinkingTo field in DESCRIPTION.
+✔ Adding Rcpp to Imports field in DESCRIPTION.
+☐ Copy and paste the following lines into R/ExampleRPkg-package.R:
+  ## usethis namespace: start
+  #&#39; @importFrom Rcpp sourceCpp
+  ## usethis namespace: end
+  NULL
+  [Copied to clipboard]
+✔ Creating src/.
+✔ Adding &quot;*.o&quot;, &quot;*.so&quot;, and &quot;*.dll&quot; to src/.gitignore.
+☐ Copy and paste the following lines into R/ExampleRPkg-package.R:
+  ## usethis namespace: start
+  #&#39; @useDynLib ExampleRPkg, .registration = TRUE
+  ## usethis namespace: end
+  NULL
+  [Copied to clipboard]
+✔ Writing src/hello.cpp.
+☐ Modify src/hello.cpp.</code></pre>
+</section>
+<section id="package-documentation" class="slide level2">
+<h2>Package Documentation</h2>
+<div class="sourceCode" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a></a>usethis<span class="sc">::</span><span class="fu">use_package_doc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>✔ Writing R/ExampleRPkg-package.R.
+☐ Modify R/ExampleRPkg-package.R.
+☐ Run devtools::document() to update package-level documentation.</code></pre>
+<h3 id="rexamplerpkg-package.r"><code>R/ExampleRPkg-package.R</code></h3>
+<div class="sourceCode" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a></a><span class="co">#&#39; @keywords internal</span></span>
+<span id="cb52-2"><a></a><span class="st">&quot;_PACKAGE&quot;</span></span>
+<span id="cb52-3"><a></a></span>
+<span id="cb52-4"><a></a><span class="do">## usethis namespace: start</span></span>
+<span id="cb52-5"><a></a><span class="co">#&#39; @importFrom Rcpp sourceCpp</span></span>
+<span id="cb52-6"><a></a><span class="co">#&#39; @useDynLib ExampleRPkg, .registration = TRUE</span></span>
+<span id="cb52-7"><a></a><span class="do">## usethis namespace: end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="srchello.cpp" class="slide level2">
+<h2><code>src/hello.cpp</code></h2>
+<div class="sourceCode" id="cb53"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb53-1"><a></a><span class="pp">#include </span><span class="im">&lt;Rcpp.h&gt;</span></span>
+<span id="cb53-2"><a></a><span class="kw">using</span> <span class="kw">namespace</span> Rcpp<span class="op">;</span></span>
+<span id="cb53-3"><a></a></span>
+<span id="cb53-4"><a></a><span class="co">//&#39; Returns a string, just as a basic check that the C++ plugin library is working.</span></span>
+<span id="cb53-5"><a></a><span class="co">//&#39; @return hello string</span></span>
+<span id="cb53-6"><a></a><span class="co">//&#39; @export</span></span>
+<span id="cb53-7"><a></a><span class="co">// [[Rcpp::export]]</span></span>
+<span id="cb53-8"><a></a>String say_hello<span class="op">()</span></span>
+<span id="cb53-9"><a></a><span class="op">{</span></span>
+<span id="cb53-10"><a></a>    <span class="cf">return</span> String<span class="op">(</span><span class="st">&quot;Hello, World!&quot;</span><span class="op">);</span></span>
+<span id="cb53-11"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="check" class="slide level2">
+<h2>Check</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">Document: <code>devtools::document()</code></label></li>
+<li><label><input type="checkbox">Reload: <code>devtools::load_all()</code></label></li>
+<li><label><input type="checkbox">Check new code</label></li>
+</ul>
+<div class="sourceCode" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a></a><span class="fu">say_hello</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>[1] &quot;Hello, World!&quot;</code></pre>
+</section>
+<section id="inputs-stl" class="slide level2">
+<h2>Inputs &amp; STL</h2>
+<p>Rcpp can handle a variety of inputs and outputs.</p>
+<ul>
+<li>R Types: <code>NumericVector</code>, <code>IntegerVector</code>, <code>CharacterVector</code>, <code>LogicalVector</code></li>
+<li>STL Types: <code>std::vector</code>, <code>std::list</code>, <code>std::map</code>, <code>std::unordered_map</code>, <code>std::set</code>, <code>std::unordered_set</code></li>
+</ul>
+<div class="sourceCode" id="cb56"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb56-1"><a></a><span class="pp">#include </span><span class="im">&lt;Rcpp.h&gt;</span></span>
+<span id="cb56-2"><a></a><span class="kw">using</span> <span class="kw">namespace</span> Rcpp<span class="op">;</span></span>
+<span id="cb56-3"><a></a></span>
+<span id="cb56-4"><a></a><span class="pp">#include </span><span class="im">&lt;string&gt;</span></span>
+<span id="cb56-5"><a></a></span>
+<span id="cb56-6"><a></a><span class="co">//&#39; Returns a string, just as a basic check that the C++ plugin library is working.</span></span>
+<span id="cb56-7"><a></a><span class="co">//&#39; @return hello string</span></span>
+<span id="cb56-8"><a></a><span class="co">//&#39; @param who string to say hello to</span></span>
+<span id="cb56-9"><a></a><span class="co">//&#39; @export</span></span>
+<span id="cb56-10"><a></a><span class="co">// [[Rcpp::export]]</span></span>
+<span id="cb56-11"><a></a><span class="bu">std::</span>string say_hello<span class="op">(</span><span class="bu">std::</span>string who <span class="op">=</span> <span class="st">&quot;World&quot;</span><span class="op">)</span></span>
+<span id="cb56-12"><a></a><span class="op">{</span></span>
+<span id="cb56-13"><a></a>    <span class="cf">return</span> <span class="st">&quot;Hello, &quot;</span> <span class="op">+</span> who <span class="op">+</span> <span class="st">&quot;!&quot;</span><span class="op">;</span></span>
+<span id="cb56-14"><a></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul class="task-list">
+<li><label><input type="checkbox">Reload</label></li>
+</ul>
+<div class="sourceCode" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a></a><span class="fu">say_hello</span>(<span class="st">&quot;Class&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>[1] &quot;Hello, Class!&quot;</code></pre>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
@@ -3011,6 +3153,44 @@ window.QuartoSupport = function () {
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
