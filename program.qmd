@@ -22,7 +22,11 @@ The first component of the workshop will cover the following topics:
 
 The contents will be taught using a start-to-finish example that attendees can follow. Slides can be accessed [here](packages/package-slides.html) ([source](packages/package-slides.qmd)). 
 
-An example R package with a Shiny app that will be reviewed during the workshop can be accessed at <https://github.com/EpiForeSITE/shiny-demo-pkg>
+An example R package with a Shiny app that will be reviewed during the workshop can be accessed at <https://github.com/EpiForeSITE/shiny-demo-pkg>. Other R packages featured during the workshop:
+
+- The [`netdiffuseR`](https://github.com/USCCANA/netdiffuseR) R package which uses `roxygen2` templates.
+- The [`epiworldRShiny`](https://github.com/UofUEpiBio/epiworldRShiny) package that uses a complex structure for hosting shiny apss.
+
 
 ## Lunch (12.00 pm - 1.00 pm)
 

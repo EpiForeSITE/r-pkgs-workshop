@@ -207,7 +207,7 @@
     "href": "program.html#part-i-practical-foundations-9.00-am---12.00-pm",
     "title": "Program",
     "section": "Part I: Practical Foundations (9.00 am - 12.00 pm)",
-    "text": "Part I: Practical Foundations (9.00 am - 12.00 pm)\nThe first component of the workshop will cover the following topics:\n\nFundamentals about R packages: Structure, DESCRIPTION file, NAMESPACE, etc.\nDocumentaion using roxygen2.\nTesting using testthat/tinytest.\nContinuous integration using GitHub Actions.\nExtended documentation: Vignettes.\n\nThe contents will be taught using a start-to-finish example that attendees can follow. Slides can be accessed here (source).\nAn example R package with a Shiny app that will be reviewed during the workshop can be accessed at https://github.com/EpiForeSITE/shiny-demo-pkg"
+    "text": "Part I: Practical Foundations (9.00 am - 12.00 pm)\nThe first component of the workshop will cover the following topics:\n\nFundamentals about R packages: Structure, DESCRIPTION file, NAMESPACE, etc.\nDocumentaion using roxygen2.\nTesting using testthat/tinytest.\nContinuous integration using GitHub Actions.\nExtended documentation: Vignettes.\n\nThe contents will be taught using a start-to-finish example that attendees can follow. Slides can be accessed here (source).\nAn example R package with a Shiny app that will be reviewed during the workshop can be accessed at https://github.com/EpiForeSITE/shiny-demo-pkg. Other R packages featured during the workshop:\n\nThe netdiffuseR R package which uses roxygen2 templates.\nThe epiworldRShiny package that uses a complex structure for hosting shiny apss."
   },
   {
     "objectID": "program.html#lunch-12.00-pm---1.00-pm",
@@ -228,7 +228,7 @@
     "href": "index.html",
     "title": "Welcome!",
     "section": "",
-    "text": "R packages are a fundamental tool for reproducibility and code sharing. Scientists and data analysts can use R packages to share new methods and improve data processing pipelines. This workshop is designed to provide a practical introduction to developing R packages. The workshop will be structured in two parts: Practical foundations of writing and a hackathon. The practical foundations will provide a start-to-finish example that attendees can follow. The hackathon component will be oriented to developing attendees’ own R packages, expecting them to complete the workshop with their own package.\nForeSITE"
+    "text": "Attendees during the morning session led by Andrew Redd (Photo by George G Vega Yon)\nR packages are a fundamental tool for reproducibility and code sharing. Scientists and data analysts can use R packages to share new methods and improve data processing pipelines. This workshop is designed to provide a practical introduction to developing R packages. The workshop will be structured in two parts: Practical foundations of writing and a hackathon. The practical foundations will provide a start-to-finish example that attendees can follow. The hackathon component will be oriented to developing attendees’ own R packages, expecting them to complete the workshop with their own package.\nForeSITE"
   },
   {
     "objectID": "index.html#about-the-workshop",

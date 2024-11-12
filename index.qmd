@@ -4,6 +4,8 @@ date: 2024-10-08
 date-modified: 2024-10-08
 ---
 
+![Attendees during the morning session led by Andrew Redd (Photo by George G Vega Yon)](live.png){width=80%}
+
 R packages are a fundamental tool for reproducibility and code sharing. Scientists and data analysts can use R packages to share new methods and improve data processing pipelines. This workshop is designed to provide a practical introduction to developing R packages. The workshop will be structured in two parts: Practical foundations of writing and a hackathon. The practical foundations will provide a start-to-finish example that attendees can follow. The hackathon component will be oriented to developing attendees’ own R packages, expecting them to complete the workshop with their own package.
 
 ## About the workshop
